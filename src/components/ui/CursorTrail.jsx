@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './CursorTrail.module.css';
 
-const TRAIL_COUNT = 10;
+const TRAIL_COUNT = 7;
 const TRAIL_ITEMS = Array.from({ length: TRAIL_COUNT }, (_, index) => index);
 
 export function CursorTrail() {

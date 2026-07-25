@@ -16,60 +16,45 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 0.58rem;
+  width: 0.44rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 248, 220, 0.95) 0 24%, rgba(245, 200, 106, 0.68) 42%, rgba(100, 215, 255, 0.22) 68%, transparent 72%);
+    radial-gradient(circle, rgba(255, 248, 220, 0.82) 0 22%, rgba(245, 200, 106, 0.48) 42%, rgba(100, 215, 255, 0.18) 68%, transparent 72%);
   box-shadow:
-    0 0 0.75rem rgba(245, 200, 106, 0.52),
-    0 0 1.35rem rgba(100, 215, 255, 0.22);
+    0 0 0.62rem rgba(245, 200, 106, 0.34),
+    0 0 1.05rem rgba(100, 215, 255, 0.16);
   will-change: transform;
 }
 
 .particle:nth-child(2) {
-  width: 0.52rem;
-  opacity: 0.82;
+  width: 0.38rem;
+  opacity: 0.7;
 }
 
 .particle:nth-child(3) {
-  width: 0.47rem;
-  opacity: 0.68;
+  width: 0.32rem;
+  opacity: 0.54;
 }
 
 .particle:nth-child(4) {
-  width: 0.4rem;
-  opacity: 0.56;
+  width: 0.27rem;
+  opacity: 0.4;
 }
 
 .particle:nth-child(5) {
-  width: 0.34rem;
-  opacity: 0.45;
+  width: 0.22rem;
+  opacity: 0.3;
 }
 
 .particle:nth-child(6) {
-  width: 0.29rem;
-  opacity: 0.34;
-}
-
-.particle:nth-child(7) {
-  width: 0.24rem;
-  opacity: 0.26;
-}
-
-.particle:nth-child(8) {
-  width: 0.2rem;
+  width: 0.18rem;
   opacity: 0.2;
 }
 
-.particle:nth-child(9) {
+.particle:nth-child(7) {
   width: 0.16rem;
-  opacity: 0.15;
-}
-
-.particle:nth-child(10) {
-  width: 0.12rem;
-  opacity: 0.1;
+  opacity: 0.13;
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {

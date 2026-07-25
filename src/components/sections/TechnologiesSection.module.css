@@ -5,8 +5,8 @@
   padding-block: clamp(4.6rem, 7vw, 6.5rem);
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 8% 8%, rgba(100, 215, 255, 0.04), transparent 26rem),
-    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.018) 48%, transparent);
+    radial-gradient(ellipse at 8% 8%, rgba(100, 215, 255, 0.035), transparent 26rem),
+    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.012) 48%, transparent);
 }
 
 .section::after {
@@ -17,15 +17,15 @@
 }
 
 .section::after {
-  right: -10%;
-  bottom: -28%;
-  width: min(46rem, 70vw);
+  right: -14%;
+  bottom: -34%;
+  width: min(42rem, 66vw);
   aspect-ratio: 1;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 38% 34%, rgba(100, 215, 255, 0.18), transparent 14%),
-    radial-gradient(circle, rgba(14, 70, 112, 0.3), transparent 62%);
-  opacity: 0.78;
+    radial-gradient(circle at 38% 34%, rgba(100, 215, 255, 0.12), transparent 14%),
+    radial-gradient(circle, rgba(14, 70, 112, 0.22), transparent 62%);
+  opacity: 0.5;
 }
 
 .grid {
@@ -46,7 +46,7 @@
   border-radius: var(--radius-card);
   background:
     linear-gradient(155deg, rgba(255, 255, 255, 0.06), transparent 52%),
-    rgba(8, 18, 32, 0.68);
+    rgba(8, 18, 32, 0.76);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
   backdrop-filter: blur(16px);

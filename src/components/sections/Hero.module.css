@@ -30,6 +30,8 @@
   z-index: -1;
   overflow: visible;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 58%, rgba(0, 0, 0, 0.82) 74%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0 58%, rgba(0, 0, 0, 0.82) 74%, transparent 100%);
 }
 
 .heroAtmosphere::before,
@@ -235,8 +237,8 @@
 
   .heroAtmosphere::before {
     background:
-      linear-gradient(90deg, rgba(2, 5, 13, 0.72) 0%, rgba(2, 5, 13, 0.44) 58%, rgba(2, 5, 13, 0.56) 100%),
-      radial-gradient(ellipse at 24% 42%, rgba(2, 5, 13, 0.84), rgba(2, 5, 13, 0.5) 18rem, transparent 34rem);
+      radial-gradient(ellipse at 24% 42%, rgba(2, 5, 13, 0.84), rgba(2, 5, 13, 0.5) 18rem, transparent 34rem),
+      radial-gradient(ellipse at 78% 34%, rgba(2, 5, 13, 0.32), transparent 20rem);
   }
 
   .energyDisk {

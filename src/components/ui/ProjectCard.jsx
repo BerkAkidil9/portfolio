@@ -4,6 +4,7 @@ import styles from './ProjectCard.module.css';
 
 export function ProjectCard({ project, index = 0 }) {
   const prefersReducedMotion = useReducedMotion();
+  const visualTheme = project.visualTheme ? styles[project.visualTheme] : '';
 
   return (
     <motion.article
@@ -14,11 +15,12 @@ export function ProjectCard({ project, index = 0 }) {
       transition={{ duration: 0.64, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       whileHover={prefersReducedMotion ? undefined : { y: -8, rotateX: 1.2, rotateY: -1.2 }}
     >
-      <div className={styles.media} aria-label={project.screenshotAlt}>
+      <div className={`${styles.media} ${visualTheme}`} aria-label={project.screenshotAlt}>
         {project.screenshot ? (
           <img src={project.screenshot} alt={project.screenshotAlt} />
         ) : (
           <div className={styles.mediaPlaceholder}>
+            <span className={styles.visualMark} aria-hidden="true" />
             <span>{project.screenshotAlt}</span>
           </div>
         )}
