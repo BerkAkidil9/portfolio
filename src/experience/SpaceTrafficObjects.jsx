@@ -109,36 +109,44 @@ export function Astronaut({ astronaut, astronautRef }) {
   return (
     <group ref={astronautRef} position={astronaut.position} rotation={[0.1, -0.22, astronaut.rotation]} scale={astronaut.scale}>
       <mesh position={[0, 0.1, 0]}>
-        <sphereGeometry args={[0.12, 14, 14]} />
-        <meshStandardMaterial color="#dff6ff" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.72} />
+        <sphereGeometry args={[0.13, 18, 18]} />
+        <meshStandardMaterial color="#eef8ff" emissive="#64d7ff" emissiveIntensity={0.16} transparent opacity={0.88} />
+      </mesh>
+      <mesh position={[0, 0.1, 0.012]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.125, 0.011, 8, 32]} />
+        <meshStandardMaterial color="#ffffff" emissive="#64d7ff" emissiveIntensity={0.18} transparent opacity={0.92} />
       </mesh>
       <mesh position={[0.032, 0.11, 0.105]} scale={[1.1, 0.62, 0.2]}>
         <sphereGeometry args={[0.075, 12, 8]} />
-        <meshStandardMaterial color="#08121f" emissive="#64d7ff" emissiveIntensity={0.24} transparent opacity={0.74} />
+        <meshStandardMaterial color="#07101d" emissive="#64d7ff" emissiveIntensity={0.44} transparent opacity={0.9} />
       </mesh>
       <mesh position={[0, -0.07, 0]}>
-        <capsuleGeometry args={[0.07, 0.16, 5, 10]} />
-        <meshStandardMaterial color="#c7d7e8" emissive="#64d7ff" emissiveIntensity={0.08} transparent opacity={0.66} />
+        <capsuleGeometry args={[0.076, 0.18, 5, 12]} />
+        <meshStandardMaterial color="#e4eef8" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.82} />
+      </mesh>
+      <mesh position={[0, -0.07, -0.095]}>
+        <boxGeometry args={[0.14, 0.17, 0.045]} />
+        <meshStandardMaterial color="#6e879e" emissive="#64d7ff" emissiveIntensity={0.16} transparent opacity={0.7} />
+      </mesh>
+      <mesh position={[0, -0.045, 0.082]}>
+        <boxGeometry args={[0.07, 0.035, 0.012]} />
+        <meshBasicMaterial color="#64d7ff" transparent opacity={0.7} blending={AdditiveBlending} />
       </mesh>
       <mesh position={[-0.08, -0.05, -0.02]} rotation={[0, 0, 0.56]}>
-        <capsuleGeometry args={[0.018, 0.13, 4, 8]} />
-        <meshStandardMaterial color="#dff6ff" emissive="#64d7ff" emissiveIntensity={0.1} transparent opacity={0.62} />
+        <capsuleGeometry args={[0.02, 0.14, 4, 8]} />
+        <meshStandardMaterial color="#eef8ff" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.78} />
       </mesh>
       <mesh position={[0.085, -0.045, -0.02]} rotation={[0, 0, -0.46]}>
-        <capsuleGeometry args={[0.018, 0.13, 4, 8]} />
-        <meshStandardMaterial color="#dff6ff" emissive="#64d7ff" emissiveIntensity={0.1} transparent opacity={0.62} />
+        <capsuleGeometry args={[0.02, 0.14, 4, 8]} />
+        <meshStandardMaterial color="#eef8ff" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.78} />
       </mesh>
       <mesh position={[-0.045, -0.2, -0.01]} rotation={[0, 0, 0.2]}>
-        <capsuleGeometry args={[0.018, 0.14, 4, 8]} />
-        <meshStandardMaterial color="#dff6ff" emissive="#64d7ff" emissiveIntensity={0.1} transparent opacity={0.62} />
+        <capsuleGeometry args={[0.021, 0.15, 4, 8]} />
+        <meshStandardMaterial color="#eef8ff" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.78} />
       </mesh>
       <mesh position={[0.045, -0.2, -0.01]} rotation={[0, 0, -0.2]}>
-        <capsuleGeometry args={[0.018, 0.14, 4, 8]} />
-        <meshStandardMaterial color="#dff6ff" emissive="#64d7ff" emissiveIntensity={0.1} transparent opacity={0.62} />
-      </mesh>
-      <mesh position={[0, -0.07, -0.08]}>
-        <boxGeometry args={[0.11, 0.14, 0.035]} />
-        <meshStandardMaterial color="#64d7ff" emissive="#2d9fd0" emissiveIntensity={0.16} transparent opacity={0.38} />
+        <capsuleGeometry args={[0.021, 0.15, 4, 8]} />
+        <meshStandardMaterial color="#eef8ff" emissive="#64d7ff" emissiveIntensity={0.12} transparent opacity={0.78} />
       </mesh>
     </group>
   );
@@ -147,29 +155,45 @@ export function Astronaut({ astronaut, astronautRef }) {
 export function AlienVisitor({ alien, alienRef }) {
   return (
     <group ref={alienRef} position={alien.position} rotation={[0.04, -0.12, alien.rotation]} scale={alien.scale}>
-      <mesh position={[0, 0.08, 0]} scale={[0.92, 1.18, 0.84]}>
-        <sphereGeometry args={[0.11, 14, 14]} />
-        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.26} transparent opacity={0.76} />
+      <mesh position={[-0.055, 0.2, 0.01]} rotation={[0, 0, 0.36]}>
+        <capsuleGeometry args={[0.008, 0.1, 3, 6]} />
+        <meshStandardMaterial color="#9cff74" emissive="#4dff8f" emissiveIntensity={0.32} transparent opacity={0.82} />
       </mesh>
-      <mesh position={[-0.035, 0.1, 0.082]} scale={[0.58, 0.9, 0.24]}>
-        <sphereGeometry args={[0.028, 8, 8]} />
-        <meshBasicMaterial color="#06120a" transparent opacity={0.84} />
+      <mesh position={[0.055, 0.2, 0.01]} rotation={[0, 0, -0.36]}>
+        <capsuleGeometry args={[0.008, 0.1, 3, 6]} />
+        <meshStandardMaterial color="#9cff74" emissive="#4dff8f" emissiveIntensity={0.32} transparent opacity={0.82} />
       </mesh>
-      <mesh position={[0.035, 0.1, 0.082]} scale={[0.58, 0.9, 0.24]}>
-        <sphereGeometry args={[0.028, 8, 8]} />
-        <meshBasicMaterial color="#06120a" transparent opacity={0.84} />
+      <mesh position={[-0.084, 0.252, 0.012]}>
+        <sphereGeometry args={[0.018, 8, 8]} />
+        <meshBasicMaterial color="#8cff64" transparent opacity={0.86} blending={AdditiveBlending} />
       </mesh>
-      <mesh position={[0, -0.075, 0]} scale={[0.82, 1, 0.7]}>
-        <capsuleGeometry args={[0.052, 0.12, 5, 10]} />
-        <meshStandardMaterial color="#73f05e" emissive="#2ea84c" emissiveIntensity={0.18} transparent opacity={0.58} />
+      <mesh position={[0.084, 0.252, 0.012]}>
+        <sphereGeometry args={[0.018, 8, 8]} />
+        <meshBasicMaterial color="#8cff64" transparent opacity={0.86} blending={AdditiveBlending} />
+      </mesh>
+      <mesh position={[0, 0.095, 0]} scale={[1.05, 1.32, 0.84]}>
+        <sphereGeometry args={[0.124, 18, 16]} />
+        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.34} transparent opacity={0.9} />
+      </mesh>
+      <mesh position={[-0.046, 0.115, 0.088]} scale={[0.55, 1.18, 0.22]} rotation={[0, 0, -0.12]}>
+        <sphereGeometry args={[0.04, 10, 8]} />
+        <meshBasicMaterial color="#06120a" transparent opacity={0.96} />
+      </mesh>
+      <mesh position={[0.046, 0.115, 0.088]} scale={[0.55, 1.18, 0.22]} rotation={[0, 0, 0.12]}>
+        <sphereGeometry args={[0.04, 10, 8]} />
+        <meshBasicMaterial color="#06120a" transparent opacity={0.96} />
+      </mesh>
+      <mesh position={[0, -0.078, 0]} scale={[0.76, 1.04, 0.62]}>
+        <capsuleGeometry args={[0.058, 0.13, 5, 10]} />
+        <meshStandardMaterial color="#73f05e" emissive="#2ea84c" emissiveIntensity={0.24} transparent opacity={0.76} />
       </mesh>
       <mesh position={[-0.07, -0.05, 0]} rotation={[0, 0, 0.42]}>
-        <capsuleGeometry args={[0.014, 0.12, 4, 8]} />
-        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.16} transparent opacity={0.58} />
+        <capsuleGeometry args={[0.016, 0.13, 4, 8]} />
+        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.2} transparent opacity={0.7} />
       </mesh>
       <mesh position={[0.07, -0.05, 0]} rotation={[0, 0, -0.42]}>
-        <capsuleGeometry args={[0.014, 0.12, 4, 8]} />
-        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.16} transparent opacity={0.58} />
+        <capsuleGeometry args={[0.016, 0.13, 4, 8]} />
+        <meshStandardMaterial color="#8cff64" emissive="#4dff8f" emissiveIntensity={0.2} transparent opacity={0.7} />
       </mesh>
     </group>
   );

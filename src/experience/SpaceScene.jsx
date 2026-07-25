@@ -17,12 +17,12 @@ export function SpaceScene({ isMobile, reducedMotion }) {
       {!reducedMotion && <ShootingStars isMobile={isMobile} />}
       {!reducedMotion && (
         <Sparkles
-          count={isMobile ? 34 : 86}
-          size={isMobile ? 1.5 : 2}
+          count={isMobile ? 20 : 48}
+          size={isMobile ? 1.05 : 1.35}
           scale={[6.4, 3.2, 2.8]}
-          speed={0.12}
+          speed={0.08}
           color="#f5c86a"
-          opacity={0.28}
+          opacity={0.14}
         />
       )}
       <CameraRig reducedMotion={reducedMotion} />

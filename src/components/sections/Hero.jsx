@@ -23,10 +23,7 @@ export function Hero() {
 
   return (
     <section className={styles.hero} id="home" aria-labelledby="hero-title">
-      <div className={styles.heroAtmosphere} aria-hidden="true">
-        <span className={styles.energyDisk} />
-        <span className={styles.eventHorizon} />
-      </div>
+      <div className={styles.heroAtmosphere} aria-hidden="true" />
 
       <div className={`section-shell ${styles.heroGrid}`}>
         <motion.div

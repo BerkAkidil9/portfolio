@@ -12,12 +12,7 @@
 }
 
 .section::before {
-  inset: -8rem 0 auto 0;
-  height: 18rem;
-  background:
-    radial-gradient(ellipse at 70% 50%, rgba(100, 215, 255, 0.08), transparent 34rem),
-    radial-gradient(ellipse at 18% 60%, rgba(153, 86, 255, 0.055), transparent 30rem);
-  opacity: 0.72;
+  display: none;
 }
 
 .section::after {

@@ -10,10 +10,8 @@
   inset: -8rem 0 auto;
   height: 18rem;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at 76% 34%, rgba(100, 215, 255, 0.09), transparent 34rem),
-    radial-gradient(ellipse at 18% 28%, rgba(245, 200, 106, 0.04), transparent 28rem);
-  opacity: 0.72;
+  background: radial-gradient(ellipse at 18% 28%, rgba(245, 200, 106, 0.035), transparent 28rem);
+  opacity: 0.54;
 }
 
 .grid {
@@ -37,7 +35,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   background:
-    radial-gradient(circle at 80% 0%, rgba(100, 215, 255, 0.13), transparent 14rem),
+    radial-gradient(circle at 80% 0%, rgba(245, 200, 106, 0.045), transparent 14rem),
     var(--color-surface-transparent);
   box-shadow: var(--shadow-card);
 }

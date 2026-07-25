@@ -5,9 +5,7 @@
   overflow: hidden;
   border-radius: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 72% 48%, rgba(100, 215, 255, 0.18), transparent 30rem),
-    radial-gradient(circle at 58% 44%, rgba(132, 92, 255, 0.12), transparent 38rem);
+  background: transparent;
 }
 
 .canvasWrap canvas {

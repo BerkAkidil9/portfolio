@@ -4,28 +4,7 @@
   margin-top: clamp(-3rem, -4vw, -1.5rem);
   padding-block: clamp(4.6rem, 7vw, 6.5rem);
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 8% 8%, rgba(100, 215, 255, 0.035), transparent 26rem),
-    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.012) 48%, transparent);
-}
-
-.section::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.section::after {
-  right: -14%;
-  bottom: -34%;
-  width: min(42rem, 66vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 38% 34%, rgba(100, 215, 255, 0.12), transparent 14%),
-    radial-gradient(circle, rgba(14, 70, 112, 0.22), transparent 62%);
-  opacity: 0.5;
+  background: transparent;
 }
 
 .grid {
@@ -45,11 +24,11 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.06), transparent 52%),
-    rgba(8, 18, 32, 0.76);
-  box-shadow: var(--shadow-soft);
+    linear-gradient(155deg, rgba(255, 255, 255, 0.026), transparent 48%),
+    rgba(3, 7, 15, 0.66);
+  box-shadow: none;
   overflow: hidden;
-  backdrop-filter: blur(16px);
+  backdrop-filter: none;
   transition:
     border-color var(--duration-normal) var(--ease-standard),
     box-shadow var(--duration-normal) var(--ease-standard);
@@ -61,8 +40,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(100, 215, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 215, 255, 0.026) 1px, transparent 1px);
+    linear-gradient(rgba(149, 190, 232, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(149, 190, 232, 0.009) 1px, transparent 1px);
   background-size: 26px 26px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 84%);
 }
@@ -70,8 +49,8 @@
 .category:hover {
   border-color: rgba(100, 215, 255, 0.34);
   box-shadow:
-    var(--shadow-soft),
-    0 0 48px rgba(100, 215, 255, 0.15);
+    0 16px 42px rgba(0, 0, 0, 0.22),
+    0 0 24px rgba(100, 215, 255, 0.04);
 }
 
 .category h3 {
