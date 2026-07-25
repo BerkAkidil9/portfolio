@@ -1,0 +1,77 @@
+.section {
+  padding-block: var(--space-section);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 0.75fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.form {
+  display: grid;
+  gap: var(--space-md);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(100, 215, 255, 0.13), transparent 14rem),
+    var(--color-surface-transparent);
+  box-shadow: var(--shadow-card);
+}
+
+.formRow {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.formRow label {
+  color: var(--color-accent-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+
+.formRow input,
+.formRow textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 0.9rem;
+  background: rgba(1, 5, 13, 0.62);
+  color: var(--color-text-primary);
+  resize: vertical;
+}
+
+.formRow input::placeholder,
+.formRow textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.notice {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.submit {
+  min-height: 2.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

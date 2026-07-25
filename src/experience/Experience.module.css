@@ -1,0 +1,12 @@
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: radial-gradient(circle at 64% 40%, rgba(100, 215, 255, 0.2), transparent 42%);
+}
+
+.canvasWrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
