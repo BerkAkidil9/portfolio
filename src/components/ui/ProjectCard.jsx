@@ -1,9 +1,19 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import { ActionLink } from './ActionLink.jsx';
 import styles from './ProjectCard.module.css';
 
-export function ProjectCard({ project }) {
+export function ProjectCard({ project, index = 0 }) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <article className={styles.card}>
+    <motion.article
+      className={styles.card}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 38, rotateX: 2 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
+      viewport={{ once: true, amount: 0.18 }}
+      transition={{ duration: 0.64, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={prefersReducedMotion ? undefined : { y: -8, rotateX: 1.2, rotateY: -1.2 }}
+    >
       <div className={styles.media} aria-label={project.screenshotAlt}>
         {project.screenshot ? (
           <img src={project.screenshot} alt={project.screenshotAlt} />
@@ -59,6 +69,6 @@ export function ProjectCard({ project }) {
           </ActionLink>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

@@ -1,13 +1,14 @@
 import { contact } from '../../data/portfolio.js';
 import { socialLinks } from '../../data/socialLinks.js';
 import { ActionLink } from '../ui/ActionLink.jsx';
+import { Reveal } from '../ui/Reveal.jsx';
 import styles from './ContactSection.module.css';
 
 export function ContactSection() {
   return (
     <section className={styles.section} id="contact" aria-labelledby="contact-title">
       <div className={`section-shell ${styles.grid}`}>
-        <div>
+        <Reveal>
           <p className="section-kicker">Contact</p>
           <h2 className="section-heading" id="contact-title">
             Contact paths are prepared, but final links are still placeholders.
@@ -24,9 +25,9 @@ export function ContactSection() {
               </ActionLink>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <form className={styles.form} aria-describedby="form-notice">
+        <Reveal className={styles.form} as="form" delay={0.12} viewportAmount={0.16}>
           <div className={styles.formRow}>
             <label htmlFor="contact-name">Name</label>
             <input id="contact-name" name="name" placeholder="[PLACEHOLDER: Sender name]" />
@@ -50,7 +51,7 @@ export function ContactSection() {
           <button className={styles.submit} type="button" disabled>
             Sending not configured
           </button>
-        </form>
+        </Reveal>
       </div>
     </section>
   );

@@ -104,21 +104,23 @@
   background: currentColor;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1200px) {
   .nav {
+    width: 100%;
     gap: var(--space-sm);
-    padding-right: 3.6rem;
+    padding-inline: 1rem 4.4rem;
   }
 
   .brand span:last-child {
-    max-width: min(16rem, 62vw);
+    max-width: min(16rem, calc(100vw - 7rem));
   }
 
   .menuButton {
     display: inline-flex;
-    position: absolute;
+    position: fixed;
     top: 0.8rem;
-    right: 0;
+    right: 1rem;
+    z-index: calc(var(--z-navigation) + 1);
   }
 
   .links {

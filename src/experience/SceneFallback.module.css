@@ -1,8 +1,10 @@
 .fallback {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: var(--z-canvas);
   overflow: hidden;
-  border-radius: var(--radius-card);
+  border-radius: 0;
+  pointer-events: none;
   background:
     radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.4px),
     radial-gradient(circle at 42% 38%, rgba(100, 215, 255, 0.72) 0 1px, transparent 1.5px),

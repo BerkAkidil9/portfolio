@@ -11,6 +11,10 @@
     var(--color-surface-transparent);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(18px);
+  transform-style: preserve-3d;
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard);
 }
 
 .card::before {
@@ -22,6 +26,33 @@
     linear-gradient(125deg, transparent 0 18%, rgba(100, 215, 255, 0.08) 18.1%, transparent 18.35% 100%),
     radial-gradient(circle at 88% 16%, rgba(245, 200, 106, 0.12), transparent 7rem);
   opacity: 0.75;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(118deg, transparent 0 22%, rgba(100, 215, 255, 0.42) 44%, rgba(245, 200, 106, 0.22) 52%, transparent 72% 100%);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  border-color: rgba(100, 215, 255, 0.34);
+  box-shadow:
+    var(--shadow-card),
+    0 0 54px rgba(100, 215, 255, 0.16);
+}
+
+.card:hover::before,
+.card:hover::after {
+  opacity: 1;
 }
 
 .media {
@@ -51,6 +82,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 900ms var(--ease-standard);
+}
+
+.card:hover .media img {
+  transform: scale(1.045);
 }
 
 .mediaPlaceholder {
@@ -68,6 +104,16 @@
     linear-gradient(rgba(100, 215, 255, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(100, 215, 255, 0.04) 1px, transparent 1px);
   background-size: 22px 22px;
+  overflow: hidden;
+}
+
+.mediaPlaceholder::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: linear-gradient(115deg, transparent 36%, rgba(100, 215, 255, 0.18) 48%, transparent 60%);
+  transform: translateX(-32%);
+  animation: mediaSweep 7s var(--ease-standard) infinite;
 }
 
 .content {
@@ -142,4 +188,15 @@
 
 .actions {
   margin-top: auto;
+}
+
+@keyframes mediaSweep {
+  0%,
+  36% {
+    transform: translateX(-40%);
+  }
+
+  100% {
+    transform: translateX(40%);
+  }
 }

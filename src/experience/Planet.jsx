@@ -5,16 +5,16 @@ import { useFrame } from '@react-three/fiber';
 export function Planet({ reducedMotion, isMobile }) {
   const planetRef = useRef();
   const ringRef = useRef();
-  const planetScale = isMobile ? 0.56 : 0.68;
-  const planetPosition = isMobile ? [-0.12, -0.08, 0] : [0.22, -0.14, 0];
+  const planetScale = isMobile ? 0.24 : 0.72;
+  const planetPosition = isMobile ? [0.46, -0.48, -0.2] : [1.86, -0.26, -0.25];
 
   useFrame((_, delta) => {
     if (reducedMotion || document.hidden) {
       return;
     }
 
-    planetRef.current.rotation.y += delta * 0.08;
-    ringRef.current.rotation.z += delta * 0.015;
+    planetRef.current.rotation.y += delta * 0.055;
+    ringRef.current.rotation.z += delta * 0.012;
   });
 
   return (

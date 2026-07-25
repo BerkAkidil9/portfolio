@@ -73,6 +73,7 @@ body::after {
 
 main {
   position: relative;
+  z-index: var(--z-content);
 }
 
 section {
