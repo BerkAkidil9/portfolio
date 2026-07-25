@@ -54,27 +54,27 @@ function createStarPositions(count, radius, depth, seedOffset = 0) {
 function NearStars({ isMobile }) {
   const nearStarsRef = useRef();
   const largeStars = useMemo(
-    () => createStarPositions(isMobile ? 9 : 18, isMobile ? 3.8 : 5.8, isMobile ? 2.6 : 3.8, 410),
+    () => createStarPositions(isMobile ? 14 : 30, isMobile ? 3.8 : 5.8, isMobile ? 2.6 : 3.8, 410),
     [isMobile],
   );
   const midStars = useMemo(
     () =>
-      createStarPositions(isMobile ? 28 : 56, isMobile ? 4.8 : 7.2, isMobile ? 4.2 : 5.4, 940),
+      createStarPositions(isMobile ? 42 : 88, isMobile ? 4.8 : 7.2, isMobile ? 4.2 : 5.4, 940),
     [isMobile],
   );
   const midUniforms = useMemo(
     () => ({
       uColor: { value: new Color('#dff6ff') },
-      uOpacity: { value: 0.74 },
-      uSize: { value: isMobile ? 0.055 : 0.075 },
+      uOpacity: { value: 0.82 },
+      uSize: { value: isMobile ? 0.07 : 0.095 },
     }),
     [isMobile],
   );
   const largeUniforms = useMemo(
     () => ({
       uColor: { value: new Color('#fff1bd') },
-      uOpacity: { value: 0.94 },
-      uSize: { value: isMobile ? 0.11 : 0.16 },
+      uOpacity: { value: 0.98 },
+      uSize: { value: isMobile ? 0.15 : 0.22 },
     }),
     [isMobile],
   );
@@ -139,8 +139,8 @@ export function StarField({ isMobile, reducedMotion }) {
       <Stars
         radius={90}
         depth={38}
-        count={isMobile ? 900 : 3800}
-        factor={isMobile ? 2.5 : 3.7}
+        count={isMobile ? 1050 : 4300}
+        factor={isMobile ? 2.8 : 4.1}
         saturation={0}
         fade
         speed={isMobile ? 0.18 : 0.28}
