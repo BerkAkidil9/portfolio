@@ -1,12 +1,24 @@
 import { contact } from '../../data/portfolio.js';
 import { socialLinks } from '../../data/socialLinks.js';
 import { ActionLink } from '../ui/ActionLink.jsx';
+import { PingPongVideo } from '../ui/PingPongVideo.jsx';
 import { Reveal } from '../ui/Reveal.jsx';
 import styles from './ContactSection.module.css';
 
 export function ContactSection() {
   return (
     <section className={styles.section} id="contact" aria-labelledby="contact-title">
+      <div className={styles.blackHole} aria-hidden="true">
+        <span className={styles.blackHoleFallback} />
+        <PingPongVideo
+          className={styles.blackHoleVideo}
+          endTrimSeconds={4.1}
+          reverseSpeed={0.82}
+          src="/videos/contact-black-hole.mp4"
+          startTrimSeconds={0.25}
+          type="video/mp4"
+        />
+      </div>
       <div className={`section-shell ${styles.grid}`}>
         <Reveal>
           <p className="section-kicker">Contact</p>

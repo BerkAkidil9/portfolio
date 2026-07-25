@@ -22,8 +22,9 @@ export function SpaceTraffic({ isMobile }) {
   const vehicleRefs = useRef([]);
   const astronautRefs = useRef([]);
   const alienRefs = useRef([]);
-  const alienCraftRef = useRef();
+  const alienCraftRefs = useRef([]);
   const sceneConfig = isMobile ? trafficConfig.mobile : trafficConfig.desktop;
+  const craftConfigs = sceneConfig.crafts ?? [sceneConfig.craft];
   const routes = useMemo(
     () => createRoutes(sceneConfig.stations, sceneConfig.routes),
     [sceneConfig.routes, sceneConfig.stations],
@@ -62,16 +63,19 @@ export function SpaceTraffic({ isMobile }) {
         return;
       }
 
-      const drift = Math.sin(elapsed * 0.28 + astronaut.phase);
-      const counterDrift = Math.cos(elapsed * 0.24 + astronaut.phase);
+      const drift = Math.sin(elapsed * 0.42 + astronaut.phase);
+      const counterDrift = Math.cos(elapsed * 0.36 + astronaut.phase);
+      const slowOrbit = Math.sin(elapsed * 0.18 + astronaut.phase * 0.7);
 
       astronautGroup.position.set(
-        astronaut.position[0] + drift * 0.04,
-        astronaut.position[1] + counterDrift * 0.032,
-        astronaut.position[2],
+        astronaut.position[0] + drift * (isMobile ? 0.07 : 0.13),
+        astronaut.position[1] + counterDrift * (isMobile ? 0.052 : 0.092),
+        astronaut.position[2] + slowOrbit * 0.035,
       );
-      astronautGroup.rotation.z = astronaut.rotation + Math.sin(elapsed * 0.24 + astronaut.phase) * 0.08;
-      astronautGroup.rotation.y = -0.22 + Math.cos(elapsed * 0.2 + astronaut.phase) * 0.07;
+      astronautGroup.rotation.x = 0.1 + Math.sin(elapsed * 0.22 + astronaut.phase) * 0.08;
+      astronautGroup.rotation.z = astronaut.rotation + Math.sin(elapsed * 0.34 + astronaut.phase) * 0.17;
+      astronautGroup.rotation.y = -0.22 + Math.cos(elapsed * 0.28 + astronaut.phase) * 0.14;
+      astronautGroup.scale.setScalar(astronaut.scale * (1 + Math.sin(elapsed * 0.72 + astronaut.phase) * 0.025));
     });
 
     sceneConfig.aliens.forEach((alien, index) => {
@@ -81,31 +85,44 @@ export function SpaceTraffic({ isMobile }) {
         return;
       }
 
-      const drift = Math.sin(elapsed * 0.34 + alien.phase);
-      const lift = Math.cos(elapsed * 0.28 + alien.phase);
+      const drift = Math.sin(elapsed * 0.48 + alien.phase);
+      const lift = Math.cos(elapsed * 0.42 + alien.phase);
+      const depthDrift = Math.sin(elapsed * 0.2 + alien.phase * 1.2);
 
       alienGroup.position.set(
-        alien.position[0] + drift * 0.032,
-        alien.position[1] + lift * 0.024,
-        alien.position[2],
+        alien.position[0] + drift * (isMobile ? 0.052 : 0.105),
+        alien.position[1] + lift * (isMobile ? 0.042 : 0.076),
+        alien.position[2] + depthDrift * 0.03,
       );
-      alienGroup.rotation.z = alien.rotation + Math.sin(elapsed * 0.3 + alien.phase) * 0.07;
-      alienGroup.rotation.y = -0.12 + Math.cos(elapsed * 0.26 + alien.phase) * 0.06;
+      alienGroup.rotation.x = 0.04 + Math.sin(elapsed * 0.3 + alien.phase) * 0.07;
+      alienGroup.rotation.z = alien.rotation + Math.sin(elapsed * 0.4 + alien.phase) * 0.16;
+      alienGroup.rotation.y = -0.12 + Math.cos(elapsed * 0.34 + alien.phase) * 0.13;
+      alienGroup.scale.setScalar(alien.scale * (1 + Math.sin(elapsed * 0.95 + alien.phase) * 0.035));
     });
 
-    if (alienCraftRef.current) {
-      const { center, drift, radius } = sceneConfig.craft;
-      const patrolX = center[0] + Math.sin(elapsed * 0.12) * radius[0] + Math.sin(elapsed * 0.23) * drift[0];
-      const patrolY = center[1] + Math.cos(elapsed * 0.1 + 1.4) * radius[1] + Math.sin(elapsed * 0.17) * drift[1];
-      const patrolZ = center[2] + Math.sin(elapsed * 0.14) * 0.12;
+    craftConfigs.forEach((craft, index) => {
+      const alienCraft = alienCraftRefs.current[index];
 
-      alienCraftRef.current.position.set(patrolX, patrolY, patrolZ);
-      alienCraftRef.current.rotation.set(
-        0.12 + Math.sin(elapsed * 0.16) * 0.06,
-        -0.18 + Math.cos(elapsed * 0.14) * 0.1,
-        Math.sin(elapsed * 0.2) * 0.16,
+      if (!alienCraft) {
+        return;
+      }
+
+      const { center, drift, radius, phase = 0 } = craft;
+      const patrolX =
+        center[0] + Math.sin(elapsed * 0.12 + phase) * radius[0] + Math.sin(elapsed * 0.23 + phase) * drift[0];
+      const patrolY =
+        center[1] +
+        Math.cos(elapsed * 0.1 + 1.4 + phase) * radius[1] +
+        Math.sin(elapsed * 0.17 + phase) * drift[1];
+      const patrolZ = center[2] + Math.sin(elapsed * 0.14 + phase) * 0.12;
+
+      alienCraft.position.set(patrolX, patrolY, patrolZ);
+      alienCraft.rotation.set(
+        0.12 + Math.sin(elapsed * 0.16 + phase) * 0.06,
+        -0.18 + Math.cos(elapsed * 0.14 + phase) * 0.1,
+        Math.sin(elapsed * 0.2 + phase) * 0.16,
       );
-    }
+    });
   });
 
   return (
@@ -140,7 +157,15 @@ export function SpaceTraffic({ isMobile }) {
           }}
         />
       ))}
-      <AlienCraft craftRef={alienCraftRef} config={sceneConfig.craft} />
+      {craftConfigs.map((craft, index) => (
+        <AlienCraft
+          key={craft.id}
+          craftRef={(node) => {
+            alienCraftRefs.current[index] = node;
+          }}
+          config={craft}
+        />
+      ))}
     </group>
   );
 }

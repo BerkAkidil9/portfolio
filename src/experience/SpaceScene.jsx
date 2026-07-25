@@ -1,6 +1,7 @@
 import { Sparkles } from '@react-three/drei';
 import { StarField } from './StarField.jsx';
 import { CameraRig } from './CameraRig.jsx';
+import { Planet } from './Planet.jsx';
 import { ShootingStars } from './ShootingStars.jsx';
 import { SpaceTraffic } from './SpaceTraffic.jsx';
 
@@ -13,6 +14,20 @@ export function SpaceScene({ isMobile, reducedMotion }) {
       <pointLight position={[2.2, -1.4, 2.4]} intensity={2.2} color="#64d7ff" />
       <pointLight position={[-2.8, 1.1, 2.2]} intensity={0.85} color="#f5c86a" />
       <StarField isMobile={isMobile} reducedMotion={reducedMotion} />
+      <Planet
+        isMobile={isMobile}
+        reducedMotion={reducedMotion}
+        variant="bare"
+        position={isMobile ? [0.76, 1.02, -3.16] : [1.14, 1.18, -3.32]}
+        scale={isMobile ? 0.19 : 0.33}
+      />
+      <Planet
+        isMobile={isMobile}
+        reducedMotion={reducedMotion}
+        variant="ringed"
+        position={isMobile ? [0.58, -0.72, -3.08] : [1.28, -1.12, -3.18]}
+        scale={isMobile ? 0.26 : 0.48}
+      />
       {!reducedMotion && <SpaceTraffic isMobile={isMobile} />}
       {!reducedMotion && <ShootingStars isMobile={isMobile} />}
       {!reducedMotion && (
