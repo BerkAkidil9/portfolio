@@ -26,8 +26,6 @@ export function Hero() {
       <div className={styles.heroAtmosphere} aria-hidden="true">
         <span className={styles.energyDisk} />
         <span className={styles.eventHorizon} />
-        <span className={styles.orbitSweep} />
-        <span className={styles.signalLine} />
       </div>
 
       <div className={`section-shell ${styles.heroGrid}`}>

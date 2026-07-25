@@ -9,26 +9,11 @@
     linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.018) 48%, transparent);
 }
 
-.section::before,
 .section::after {
   content: "";
   position: absolute;
   pointer-events: none;
   z-index: -1;
-}
-
-.section::before {
-  left: 7%;
-  top: 12%;
-  width: min(30rem, 42vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(100, 215, 255, 0.14);
-  box-shadow:
-    inset 0 0 64px rgba(100, 215, 255, 0.06),
-    0 0 90px rgba(100, 215, 255, 0.08);
-  transform: rotate(-12deg);
-  animation: techOrbit 26s linear infinite;
 }
 
 .section::after {
@@ -151,16 +136,6 @@
 
   to {
     transform: translateY(-0.22rem);
-  }
-}
-
-@keyframes techOrbit {
-  from {
-    transform: rotate(-12deg);
-  }
-
-  to {
-    transform: rotate(348deg);
   }
 }
 

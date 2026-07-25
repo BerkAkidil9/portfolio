@@ -41,109 +41,92 @@
 
 .heroAtmosphere::before {
   inset: 0;
-  z-index: 3;
+  z-index: 4;
   background:
-    radial-gradient(ellipse at 21% 47%, rgba(2, 5, 13, 0.92), rgba(2, 5, 13, 0.62) 20rem, transparent 40rem),
-    radial-gradient(ellipse at 56% 72%, rgba(2, 5, 13, 0.26), transparent 36rem);
+    radial-gradient(ellipse at 72% 36%, rgba(0, 0, 0, 0.34), transparent 12rem),
+    linear-gradient(90deg, rgba(2, 5, 13, 0.9) 0%, rgba(2, 5, 13, 0.68) 28%, rgba(2, 5, 13, 0.12) 56%, rgba(2, 5, 13, 0.2) 100%),
+    radial-gradient(ellipse at 22% 48%, rgba(2, 5, 13, 0.9), rgba(2, 5, 13, 0.54) 20rem, transparent 42rem);
 }
 
 .heroAtmosphere::after {
-  display: none;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 72% 35%, rgba(255, 190, 104, 0.11), transparent 17rem),
+    radial-gradient(ellipse at 76% 42%, rgba(22, 28, 39, 0.34), transparent 25rem),
+    radial-gradient(ellipse at 82% 28%, rgba(100, 215, 255, 0.045), transparent 30rem);
+  opacity: 0.62;
+  animation: nebulaPulse 12s var(--ease-standard) infinite alternate;
 }
 
 .energyDisk {
   position: absolute;
-  top: clamp(3rem, 6.5vw, 6.2rem);
-  left: 64%;
+  top: clamp(12.8rem, 18.5vw, 17.8rem);
+  left: 72%;
   z-index: 2;
-  width: min(50rem, 50vw);
-  aspect-ratio: 1.45 / 1;
+  width: min(31rem, 32vw);
+  height: min(4.2rem, 4.8vw);
   border-radius: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(-7deg);
   background:
-    conic-gradient(from 236deg, transparent 0 7%, rgba(255, 255, 255, 0.96) 10%, rgba(205, 181, 255, 0.92) 13%, rgba(132, 87, 255, 0.68) 20%, rgba(69, 49, 175, 0.44) 28%, transparent 39%, rgba(92, 207, 255, 0.22) 54%, transparent 65%, rgba(245, 200, 106, 0.2) 78%, transparent 92% 100%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.72) 19%, rgba(152, 96, 255, 0.78) 25%, rgba(72, 53, 185, 0.5) 37%, rgba(44, 142, 180, 0.2) 52%, transparent 68%);
-  filter: blur(0.55px);
-  opacity: 0.88;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 18%, #000 20% 64%, transparent 69%);
-  mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 18%, #000 20% 64%, transparent 69%);
+    linear-gradient(90deg, transparent 0 4%, rgba(255, 235, 192, 0.18) 9%, rgba(255, 246, 225, 0.82) 17%, rgba(255, 187, 104, 0.62) 27%, rgba(181, 111, 58, 0.32) 39%, rgba(95, 60, 36, 0.18) 46%, rgba(255, 219, 158, 0.24) 62%, rgba(122, 81, 47, 0.16) 76%, transparent 94%),
+    radial-gradient(ellipse at 36% 46%, transparent 0 18%, rgba(255, 250, 235, 0.5) 21%, rgba(255, 184, 103, 0.3) 33%, transparent 62%),
+    radial-gradient(ellipse at 63% 52%, transparent 0 25%, rgba(255, 205, 132, 0.18) 29%, transparent 57%),
+    linear-gradient(93deg, transparent 0 17%, rgba(0, 0, 0, 0.34) 25%, transparent 31% 46%, rgba(0, 0, 0, 0.24) 54%, transparent 62% 100%);
+  filter: blur(0.7px);
+  opacity: 0.78;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 15%, #000 18% 52%, transparent 69%);
+  mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 15%, #000 18% 52%, transparent 69%);
   box-shadow:
-    0 0 70px rgba(144, 86, 255, 0.34),
-    0 0 190px rgba(100, 215, 255, 0.12);
-  animation: diskSpin 58s linear infinite;
-}
-
-.energyDisk::before,
-.energyDisk::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
+    0 0 18px rgba(255, 246, 225, 0.16),
+    0 0 56px rgba(255, 184, 103, 0.26),
+    0 0 110px rgba(100, 215, 255, 0.06);
+  animation: diskDrift 18s var(--ease-standard) infinite alternate;
 }
 
 .energyDisk::before {
-  inset: 31% 2% 31%;
+  content: "";
+  position: absolute;
+  inset: 36% 4% 35%;
+  pointer-events: none;
+  border-radius: 50%;
   background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52) 18%, rgba(190, 171, 255, 0.64) 39%, rgba(88, 207, 255, 0.2) 58%, transparent 84%);
-  filter: blur(6px);
-  opacity: 0.58;
-  transform: rotate(-5deg);
+    linear-gradient(90deg, transparent 0 7%, rgba(255, 249, 231, 0.64) 18%, rgba(255, 195, 116, 0.36) 34%, transparent 40% 49%, rgba(0, 0, 0, 0.28) 54%, transparent 59%, rgba(255, 220, 154, 0.18) 66%, rgba(102, 65, 37, 0.16) 76%, transparent 92%);
+  filter: blur(2.8px);
+  opacity: 0.5;
 }
 
 .energyDisk::after {
-  inset: 28% 20%;
+  content: "";
+  position: absolute;
+  inset: 20% 17% 21% 24%;
+  pointer-events: none;
+  border-radius: 50%;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(1, 3, 10, 0.96) 0 42%, rgba(1, 3, 10, 0.64) 54%, transparent 70%);
-  box-shadow:
-    inset 0 0 2rem rgba(0, 0, 0, 0.9),
-    0 0 4.5rem rgba(129, 82, 255, 0.44);
-  opacity: 0.92;
+    linear-gradient(96deg, transparent 0 18%, rgba(0, 0, 0, 0.42) 28%, transparent 37% 55%, rgba(0, 0, 0, 0.28) 64%, transparent 76% 100%);
+  filter: blur(2px);
+  opacity: 0.5;
 }
 
 .eventHorizon {
   position: absolute;
-  top: clamp(12.4rem, 17.8vw, 17.6rem);
-  left: 64%;
+  top: clamp(11.45rem, 16.15vw, 15.55rem);
+  left: 72%;
   z-index: 3;
-  width: min(16.5rem, 16vw);
+  width: min(8.2rem, 8.5vw);
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translateX(-50%);
   background:
-    radial-gradient(circle at 42% 37%, rgba(10, 11, 22, 0.92), #01030a 58%, #000 100%);
+    radial-gradient(circle at 34% 30%, rgba(255, 214, 148, 0.09), transparent 17%),
+    radial-gradient(circle at 43% 38%, rgba(7, 8, 16, 0.82), #010208 58%, #000 100%);
   box-shadow:
     0 0 0.2rem rgba(0, 0, 0, 1),
-    0 0 3.2rem rgba(0, 0, 0, 0.96),
-    0 0 4.4rem rgba(184, 145, 255, 0.38);
-}
-
-.orbitSweep {
-  position: absolute;
-  z-index: 2;
-  right: 12%;
-  bottom: 12%;
-  width: min(50rem, 54vw);
-  height: min(12rem, 14vw);
-  border: 1px solid rgba(155, 183, 255, 0.26);
-  border-left-color: rgba(245, 200, 106, 0.16);
-  border-right-color: transparent;
-  border-radius: 50%;
-  transform: rotate(-14deg);
-  opacity: 0.32;
-  animation: orbitBreathe 7s var(--ease-standard) infinite alternate;
-}
-
-.signalLine {
-  position: absolute;
-  right: 17%;
-  bottom: 9%;
-  z-index: 2;
-  width: 1px;
-  height: min(46rem, 65vh);
-  background: linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.42), transparent);
-  transform: rotate(16deg);
-  opacity: 0.38;
-  animation: signalScan 5.8s var(--ease-standard) infinite alternate;
+    inset -0.72rem -0.64rem 1.45rem rgba(0, 0, 0, 0.88),
+    inset 0.18rem 0.1rem 0.8rem rgba(255, 219, 158, 0.08),
+    0 0 2rem rgba(0, 0, 0, 0.98),
+    0 0 2.4rem rgba(255, 204, 139, 0.2),
+    0 0 4.8rem rgba(0, 0, 0, 0.36);
 }
 
 .heroGrid {
@@ -226,37 +209,15 @@
   }
 }
 
-@keyframes diskSpin {
+@keyframes diskDrift {
   from {
-    transform: translateX(-50%) rotate(-8deg);
+    transform: translateX(-50%) rotate(-7.6deg) scaleX(0.985);
+    opacity: 0.78;
   }
 
   to {
-    transform: translateX(-50%) rotate(352deg);
-  }
-}
-
-@keyframes orbitBreathe {
-  from {
-    opacity: 0.46;
-    transform: rotate(-14deg) scale(0.98);
-  }
-
-  to {
-    opacity: 0.92;
-    transform: rotate(-13deg) scale(1.02);
-  }
-}
-
-@keyframes signalScan {
-  from {
-    opacity: 0.16;
-    transform: rotate(16deg) translateY(2rem);
-  }
-
-  to {
-    opacity: 0.46;
-    transform: rotate(16deg) translateY(-1rem);
+    transform: translateX(-50%) rotate(-6.4deg) scaleX(1.015);
+    opacity: 0.94;
   }
 }
 
@@ -274,32 +235,22 @@
 
   .heroAtmosphere::before {
     background:
-      radial-gradient(ellipse at 24% 42%, rgba(2, 5, 13, 0.9), rgba(2, 5, 13, 0.58) 18rem, transparent 34rem);
+      linear-gradient(90deg, rgba(2, 5, 13, 0.72) 0%, rgba(2, 5, 13, 0.44) 58%, rgba(2, 5, 13, 0.56) 100%),
+      radial-gradient(ellipse at 24% 42%, rgba(2, 5, 13, 0.84), rgba(2, 5, 13, 0.5) 18rem, transparent 34rem);
   }
 
   .energyDisk {
-    top: 6rem;
-    left: 82%;
-    width: min(24rem, 86vw);
-    opacity: 0.54;
+    top: 12.95rem;
+    left: 74%;
+    width: 14.5rem;
+    height: 3.5rem;
+    opacity: 0.38;
   }
 
   .eventHorizon {
-    top: 13.9rem;
-    left: 82%;
-    width: 7rem;
-  }
-
-  .orbitSweep {
-    right: -22%;
-    bottom: 24%;
-    width: 28rem;
-    height: 7rem;
-    opacity: 0.22;
-  }
-
-  .signalLine {
-    display: none;
+    top: 11.95rem;
+    left: 74%;
+    width: 4.8rem;
   }
 
   .content h1 {
