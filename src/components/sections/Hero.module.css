@@ -2,52 +2,34 @@
   position: relative;
   isolation: isolate;
   min-height: clamp(44rem, 84svh, 58rem);
-  overflow: hidden;
+  overflow: visible;
   padding-block: clamp(3.5rem, 7vw, 6rem) clamp(7rem, 11vw, 10rem);
-  background:
-    radial-gradient(ellipse at 74% 38%, rgba(52, 148, 214, 0.2), transparent 28rem),
-    radial-gradient(ellipse at 44% -10%, rgba(132, 74, 255, 0.18), transparent 34rem),
-    linear-gradient(180deg, rgba(4, 8, 20, 0.02), rgba(2, 5, 13, 0.2) 68%, rgba(2, 5, 13, 0));
+  background: transparent;
 }
 
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 0 -18rem;
   z-index: -2;
   pointer-events: none;
 }
 
 .hero::before {
-  background:
-    radial-gradient(circle at 17% 23%, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 62% 18%, rgba(100, 215, 255, 0.78) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 79% 72%, rgba(245, 200, 106, 0.5) 0 1px, transparent 1.5px);
-  background-size: 122px 122px, 181px 181px, 247px 247px;
-  opacity: 0.62;
-  mask-image: linear-gradient(to bottom, #000 0 72%, transparent 100%);
-  animation: starDrift 28s linear infinite;
+  display: none;
 }
 
 .hero::after {
-  background:
-    radial-gradient(ellipse at 52% -15%, rgba(255, 255, 255, 0.35), transparent 9rem),
-    radial-gradient(ellipse at 52% -10%, rgba(153, 86, 255, 0.42), transparent 20rem),
-    linear-gradient(112deg, transparent 0 58%, rgba(100, 215, 255, 0.14) 58.12%, transparent 58.42% 100%),
-    linear-gradient(26deg, transparent 0 65%, rgba(245, 200, 106, 0.07) 65.1%, transparent 65.34% 100%);
-  opacity: 0.76;
-  mask-image: linear-gradient(to bottom, #000 0 76%, transparent 100%);
-  animation: nebulaPulse 9s var(--ease-standard) infinite alternate;
+  display: none;
 }
 
 .heroAtmosphere {
   position: absolute;
-  inset: 0;
+  inset: 0 0 -48rem;
   z-index: -1;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
-  mask-image: linear-gradient(to bottom, #000 0 82%, transparent 100%);
 }
 
 .heroAtmosphere::before,
@@ -61,62 +43,93 @@
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(90deg, rgba(2, 5, 13, 0.96) 0%, rgba(2, 5, 13, 0.82) 24%, rgba(2, 5, 13, 0.18) 58%, rgba(2, 5, 13, 0.34) 100%),
-    linear-gradient(180deg, rgba(2, 5, 13, 0.04) 0%, rgba(2, 5, 13, 0.1) 54%, rgba(2, 5, 13, 0) 100%);
+    radial-gradient(ellipse at 21% 47%, rgba(2, 5, 13, 0.92), rgba(2, 5, 13, 0.62) 20rem, transparent 40rem),
+    radial-gradient(ellipse at 56% 72%, rgba(2, 5, 13, 0.26), transparent 36rem);
 }
 
 .heroAtmosphere::after {
-  right: 4%;
-  bottom: -12%;
-  z-index: 1;
-  width: min(46rem, 50vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 30%, rgba(110, 224, 255, 0.22), transparent 11%),
-    radial-gradient(circle at 47% 42%, rgba(17, 88, 137, 0.78), rgba(3, 18, 36, 0.88) 58%, rgba(1, 3, 10, 0.98) 71%);
-  box-shadow:
-    inset -4rem -3rem 6rem rgba(0, 0, 0, 0.76),
-    inset 1.2rem 1.1rem 4rem rgba(100, 215, 255, 0.1),
-    0 0 8rem rgba(100, 215, 255, 0.12);
-  opacity: 0.9;
-  animation: planetFloat 16s var(--ease-standard) infinite alternate;
+  display: none;
 }
 
 .energyDisk {
   position: absolute;
-  top: clamp(1.8rem, 5vw, 4rem);
-  left: 55%;
+  top: clamp(3rem, 6.5vw, 6.2rem);
+  left: 64%;
   z-index: 2;
-  width: min(44rem, 46vw);
+  width: min(50rem, 50vw);
+  aspect-ratio: 1.45 / 1;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background:
+    conic-gradient(from 236deg, transparent 0 7%, rgba(255, 255, 255, 0.96) 10%, rgba(205, 181, 255, 0.92) 13%, rgba(132, 87, 255, 0.68) 20%, rgba(69, 49, 175, 0.44) 28%, transparent 39%, rgba(92, 207, 255, 0.22) 54%, transparent 65%, rgba(245, 200, 106, 0.2) 78%, transparent 92% 100%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.72) 19%, rgba(152, 96, 255, 0.78) 25%, rgba(72, 53, 185, 0.5) 37%, rgba(44, 142, 180, 0.2) 52%, transparent 68%);
+  filter: blur(0.55px);
+  opacity: 0.88;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 18%, #000 20% 64%, transparent 69%);
+  mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 18%, #000 20% 64%, transparent 69%);
+  box-shadow:
+    0 0 70px rgba(144, 86, 255, 0.34),
+    0 0 190px rgba(100, 215, 255, 0.12);
+  animation: diskSpin 58s linear infinite;
+}
+
+.energyDisk::before,
+.energyDisk::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.energyDisk::before {
+  inset: 31% 2% 31%;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52) 18%, rgba(190, 171, 255, 0.64) 39%, rgba(88, 207, 255, 0.2) 58%, transparent 84%);
+  filter: blur(6px);
+  opacity: 0.58;
+  transform: rotate(-5deg);
+}
+
+.energyDisk::after {
+  inset: 28% 20%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(1, 3, 10, 0.96) 0 42%, rgba(1, 3, 10, 0.64) 54%, transparent 70%);
+  box-shadow:
+    inset 0 0 2rem rgba(0, 0, 0, 0.9),
+    0 0 4.5rem rgba(129, 82, 255, 0.44);
+  opacity: 0.92;
+}
+
+.eventHorizon {
+  position: absolute;
+  top: clamp(12.4rem, 17.8vw, 17.6rem);
+  left: 64%;
+  z-index: 3;
+  width: min(16.5rem, 16vw);
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translateX(-50%);
   background:
-    radial-gradient(circle at 50% 51%, rgba(2, 3, 12, 0.99) 0 28%, transparent 28.3%),
-    conic-gradient(from 12deg, transparent 0 14%, rgba(255, 255, 255, 0.9) 16%, rgba(152, 89, 255, 0.72) 20%, rgba(77, 49, 190, 0.32) 28%, transparent 42%, rgba(100, 215, 255, 0.16) 52%, transparent 64%, rgba(245, 200, 106, 0.12) 78%, transparent 100%),
-    radial-gradient(circle at 50% 51%, rgba(255, 255, 255, 0.56) 28.1%, rgba(164, 91, 255, 0.58) 33.5%, rgba(73, 39, 178, 0.4) 42%, transparent 56%);
-  filter: blur(0.5px);
-  opacity: 0.9;
+    radial-gradient(circle at 42% 37%, rgba(10, 11, 22, 0.92), #01030a 58%, #000 100%);
   box-shadow:
-    0 0 110px rgba(144, 86, 255, 0.46),
-    0 0 260px rgba(100, 215, 255, 0.17);
-  animation: diskSpin 36s linear infinite;
+    0 0 0.2rem rgba(0, 0, 0, 1),
+    0 0 3.2rem rgba(0, 0, 0, 0.96),
+    0 0 4.4rem rgba(184, 145, 255, 0.38);
 }
 
 .orbitSweep {
   position: absolute;
   z-index: 2;
-  right: 5%;
-  bottom: 13%;
-  width: min(44rem, 48vw);
+  right: 12%;
+  bottom: 12%;
+  width: min(50rem, 54vw);
   height: min(12rem, 14vw);
   border: 1px solid rgba(155, 183, 255, 0.26);
   border-left-color: rgba(245, 200, 106, 0.16);
   border-right-color: transparent;
   border-radius: 50%;
   transform: rotate(-14deg);
-  opacity: 0.86;
+  opacity: 0.32;
   animation: orbitBreathe 7s var(--ease-standard) infinite alternate;
 }
 
@@ -215,21 +228,11 @@
 
 @keyframes diskSpin {
   from {
-    transform: translateX(-50%) rotate(0deg);
+    transform: translateX(-50%) rotate(-8deg);
   }
 
   to {
-    transform: translateX(-50%) rotate(360deg);
-  }
-}
-
-@keyframes planetFloat {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(-1.2rem, -0.8rem, 0) scale(1.025);
+    transform: translateX(-50%) rotate(352deg);
   }
 }
 
@@ -269,31 +272,30 @@
     padding-top: clamp(2rem, 10vw, 4rem);
   }
 
-  .heroAtmosphere::after {
-    right: -16%;
-    bottom: -3%;
-    width: 27rem;
-    opacity: 0.72;
-  }
-
   .heroAtmosphere::before {
     background:
-      linear-gradient(90deg, rgba(2, 5, 13, 0.82) 0%, rgba(2, 5, 13, 0.48) 58%, rgba(2, 5, 13, 0.48) 100%),
-      linear-gradient(180deg, rgba(2, 5, 13, 0.08) 0%, rgba(2, 5, 13, 0.78) 100%);
+      radial-gradient(ellipse at 24% 42%, rgba(2, 5, 13, 0.9), rgba(2, 5, 13, 0.58) 18rem, transparent 34rem);
   }
 
   .energyDisk {
-    top: 1.4rem;
-    left: 69%;
-    width: min(28rem, 84vw);
-    opacity: 0.74;
+    top: 6rem;
+    left: 82%;
+    width: min(24rem, 86vw);
+    opacity: 0.54;
+  }
+
+  .eventHorizon {
+    top: 13.9rem;
+    left: 82%;
+    width: 7rem;
   }
 
   .orbitSweep {
-    right: -20%;
-    bottom: 17%;
+    right: -22%;
+    bottom: 24%;
     width: 28rem;
     height: 7rem;
+    opacity: 0.22;
   }
 
   .signalLine {

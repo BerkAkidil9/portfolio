@@ -1,11 +1,12 @@
 .section {
   position: relative;
   isolation: isolate;
-  padding-block: var(--space-section);
+  margin-top: clamp(-3rem, -4vw, -1.5rem);
+  padding-block: clamp(4.6rem, 7vw, 6.5rem);
   overflow: hidden;
   background:
-    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.035) 48%, transparent),
-    linear-gradient(90deg, rgba(245, 200, 106, 0.035), transparent 34%);
+    radial-gradient(ellipse at 8% 8%, rgba(100, 215, 255, 0.04), transparent 26rem),
+    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.018) 48%, transparent);
 }
 
 .section::before,

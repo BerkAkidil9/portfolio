@@ -1,5 +1,19 @@
 .section {
-  padding-block: var(--space-section);
+  position: relative;
+  margin-top: clamp(-2.5rem, -3vw, -1rem);
+  padding-block: clamp(4.6rem, 7vw, 6.5rem);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -8rem 0 auto;
+  height: 18rem;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 76% 34%, rgba(100, 215, 255, 0.09), transparent 34rem),
+    radial-gradient(ellipse at 18% 28%, rgba(245, 200, 106, 0.04), transparent 28rem);
+  opacity: 0.72;
 }
 
 .grid {

@@ -45,7 +45,6 @@ body::before {
     68px 68px,
     68px 68px;
   opacity: 0.5;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 78%);
 }
 
 body::after {
@@ -74,6 +73,36 @@ body::after {
 main {
   position: relative;
   z-index: var(--z-content);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+main::before,
+main::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+main::before {
+  top: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 76% 8%, rgba(100, 215, 255, 0.11), transparent 34rem),
+    radial-gradient(ellipse at 18% 24%, rgba(153, 86, 255, 0.08), transparent 32rem),
+    radial-gradient(ellipse at 72% 47%, rgba(100, 215, 255, 0.08), transparent 40rem),
+    radial-gradient(ellipse at 22% 72%, rgba(245, 200, 106, 0.045), transparent 34rem);
+}
+
+main::after {
+  top: 0;
+  bottom: 0;
+  background:
+    linear-gradient(115deg, transparent 0 31%, rgba(100, 215, 255, 0.055) 31.1%, transparent 31.35% 100%),
+    linear-gradient(151deg, transparent 0 63%, rgba(155, 183, 255, 0.04) 63.1%, transparent 63.34% 100%);
+  opacity: 0.72;
 }
 
 section {

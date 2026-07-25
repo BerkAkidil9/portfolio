@@ -25,6 +25,7 @@ export function Hero() {
     <section className={styles.hero} id="home" aria-labelledby="hero-title">
       <div className={styles.heroAtmosphere} aria-hidden="true">
         <span className={styles.energyDisk} />
+        <span className={styles.eventHorizon} />
         <span className={styles.orbitSweep} />
         <span className={styles.signalLine} />
       </div>

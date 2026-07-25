@@ -1,6 +1,18 @@
 .section {
-  padding-block: var(--space-section);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  position: relative;
+  margin-top: clamp(-2.5rem, -3vw, -1rem);
+  padding-block: clamp(4.6rem, 7vw, 6.5rem);
+  background: transparent;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -7rem 0 auto;
+  height: 16rem;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 26% 40%, rgba(100, 215, 255, 0.07), transparent 32rem);
+  opacity: 0.7;
 }
 
 .grid {
