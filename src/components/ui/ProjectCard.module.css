@@ -224,7 +224,7 @@
 
 .metaRow,
 .actions,
-.techList {
+.skillList {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
@@ -232,7 +232,7 @@
 
 .status,
 .featured,
-.techList span {
+.skillList span {
   display: inline-flex;
   align-items: center;
   min-height: 1.9rem;

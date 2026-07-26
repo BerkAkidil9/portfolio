@@ -3,7 +3,7 @@ import { Navigation } from './components/navigation/Navigation.jsx';
 import { Footer } from './components/layout/Footer.jsx';
 import { Hero } from './components/sections/Hero.jsx';
 import { ProjectsSection } from './components/sections/ProjectsSection.jsx';
-import { TechnologiesSection } from './components/sections/TechnologiesSection.jsx';
+import { SkillsSection } from './components/sections/SkillsSection.jsx';
 import { AboutSection } from './components/sections/AboutSection.jsx';
 import { JourneySection } from './components/sections/JourneySection.jsx';
 import { ContactSection } from './components/sections/ContactSection.jsx';
@@ -27,7 +27,7 @@ function App() {
       <main>
         <Hero />
         <ProjectsSection />
-        <TechnologiesSection />
+        <SkillsSection />
         <AboutSection />
         <JourneySection />
         <ContactSection />

@@ -30,7 +30,7 @@ export function Navigation({ items }) {
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Primary navigation">
         <a className={styles.brand} href="#home" onClick={() => setIsOpen(false)}>
-          <span className={styles.brandMark} aria-hidden="true" />
+          <img className={styles.brandIcon} src="/logo-mark.png" alt="" aria-hidden="true" />
           <span>{hero.name}</span>
         </a>
 

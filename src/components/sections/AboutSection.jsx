@@ -18,11 +18,11 @@ export function AboutSection() {
         <Reveal>
           <p className="section-kicker">About</p>
           <h2 className="section-heading" id="about-title">
-            A polished biography layout without fabricated personal claims.
+            Full-stack developer focused on secure, scalable business applications.
           </h2>
           <p className="section-copy">
-            Each content block is ready to be replaced once Berk provides verified biography,
-            objectives and working style notes.
+            Berk works across web interfaces, backend systems, databases and deployment workflows
+            with a focus on maintainable software and practical business value.
           </p>
         </Reveal>
 

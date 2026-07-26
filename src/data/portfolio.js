@@ -1,51 +1,62 @@
 export const seo = {
-  title: '[PLACEHOLDER: Page title]',
-  description: '[PLACEHOLDER: Meta description]',
-  author: '[PLACEHOLDER: Author]',
-  openGraphTitle: '[PLACEHOLDER: Open Graph title]',
-  openGraphDescription: '[PLACEHOLDER: Open Graph description]',
-  openGraphImage: '[PLACEHOLDER: Open Graph image]',
+  title: 'Berk Akidil | Software Engineer Portfolio',
+  description:
+    'Full-stack software developer and Computer Science graduate focused on secure, scalable, business-oriented web applications.',
+  author: 'Berk Akidil',
+  openGraphTitle: 'Berk Akidil | Software Engineer Portfolio',
+  openGraphDescription:
+    'Portfolio of Berk Akidil, featuring Django CRM, Swim Center and full-stack web application work.',
+  openGraphImage: '/og-image.png',
   canonicalUrl: '[PLACEHOLDER: Canonical URL]',
-  favicon: '[PLACEHOLDER: Favicon file or URL]',
+  favicon: '/favicon-32x32.png',
 };
 
 export const navigationItems = [
   { label: 'Home', href: '#home', id: 'home' },
   { label: 'Projects', href: '#projects', id: 'projects' },
-  { label: 'Technologies', href: '#technologies', id: 'technologies' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
   { label: 'About', href: '#about', id: 'about' },
+  { label: 'Experience', href: '#experience', id: 'experience' },
   { label: 'Contact', href: '#contact', id: 'contact' },
 ];
 
 export const hero = {
-  name: '[PLACEHOLDER: Developer name]',
-  role: 'Web Developer',
-  introduction: '[PLACEHOLDER: Short professional introduction]',
+  name: 'Berk Akidil',
+  role: 'Software Engineer | Full-Stack Developer',
+  introduction:
+    'Computer Science graduate from Özyeğin University focused on secure, scalable and business-oriented web applications across the full stack.',
   primaryAction: { label: 'View projects', href: '#projects' },
   secondaryAction: { label: 'Contact', href: '#contact' },
 };
 
 export const introHighlights = [
-  '[PLACEHOLDER: Short professional focus]',
-  '[PLACEHOLDER: Primary portfolio highlight]',
-  '[PLACEHOLDER: Main technology stack summary]',
-  '[PLACEHOLDER: Contact or availability note]',
+  'Full-stack development with JavaScript, TypeScript, Python and Java',
+  'Business workflow platforms with role-based access and operational dashboards',
+  'React, Django, Node.js, Express, PostgreSQL, MySQL and deployment workflows',
+  'Seeking software engineering opportunities focused on secure, scalable and business-oriented applications',
 ];
 
 export const about = {
-  biography: '[PLACEHOLDER: About biography]',
-  focus: '[PLACEHOLDER: Development focus]',
-  learningJourney: '[PLACEHOLDER: Learning journey]',
-  careerObjective: '[PLACEHOLDER: Career objective]',
-  workingPrinciples: '[PLACEHOLDER: Working principles]',
-  currentInterests: '[PLACEHOLDER: Current interests]',
+  biography:
+    'Berk Akidil is a Computer Science graduate from Özyeğin University and a full-stack software developer focused on building secure, scalable and business-oriented web applications.',
+  focus:
+    'He works across frontend, backend and relational databases, with project experience in CRM systems, facility management platforms, data integration and role-based workflows.',
+  learningJourney:
+    'His hands-on work includes internships at CPF Türkiye, a multi-tenant Django CRM platform, a Java Excel/XML conversion tool and full-stack projects using React, Node.js, Django and PostgreSQL.',
+  careerObjective:
+    'Berk is currently seeking software engineering opportunities where he can contribute to scalable applications, improve business workflows and continue growing as a software engineer.',
+  workingPrinciples:
+    'He values clean, maintainable code, version control with Git and GitHub, manual validation of technical decisions and responsible use of AI-assisted development tools for debugging, documentation, refactoring and code review.',
+  currentInterests:
+    'His interests include multi-tenant applications, backend architecture, business workflow automation, data integration, role-based systems and secure application design.',
 };
 
 export const contact = {
-  message: '[PLACEHOLDER: Contact message]',
-  email: '[PLACEHOLDER: Email address]',
-  github: '[PLACEHOLDER: GitHub profile URL]',
-  linkedin: '[PLACEHOLDER: LinkedIn profile URL]',
-  cv: '[PLACEHOLDER: CV file or URL]',
+  message:
+    'For software engineering opportunities or project discussions, use the contact paths below.',
+  email: 'berkakidil9@gmail.com',
+  github: 'https://github.com/BerkAkidil9',
+  linkedin: 'https://www.linkedin.com/in/berkakidil/',
+  cv: '/docs/resume-berk-akidil.pdf',
   formNotice: 'Contact form sending is not configured in this initial version.',
 };

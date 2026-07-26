@@ -56,18 +56,18 @@ export function ProjectCard({ project, index = 0 }) {
           ))}
         </ul>
 
-        <div className={styles.techList} aria-label={`${project.name} technologies`}>
-          {project.technologies.map((technology, index) => (
-            <span key={`${project.id}-technology-${index}`}>{technology}</span>
+        <div className={styles.skillList} aria-label={`${project.name} skills`}>
+          {project.skills.map((skill, index) => (
+            <span key={`${project.id}-skill-${index}`}>{skill}</span>
           ))}
         </div>
 
         <div className={styles.actions}>
           <ActionLink href={project.githubUrl} variant="ghost" disabled={!project.githubUrl}>
-            GitHub coming soon
+            {project.githubUrl ? 'GitHub' : 'GitHub coming soon'}
           </ActionLink>
           <ActionLink href={project.liveDemoUrl} variant="secondary" disabled={!project.liveDemoUrl}>
-            Live demo coming soon
+            {project.liveDemoUrl ? 'Live demo' : 'Live demo coming soon'}
           </ActionLink>
         </div>
       </div>

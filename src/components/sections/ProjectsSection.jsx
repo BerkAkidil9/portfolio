@@ -12,11 +12,11 @@ export function ProjectsSection() {
         <Reveal>
           <p className="section-kicker">Featured work</p>
           <h2 className="section-heading" id="projects-title">
-            Project cards are ready for verified repositories, screenshots and live demos.
+            Business-focused systems built across frontend, backend and deployment workflows.
           </h2>
           <p className="section-copy">
-            Placeholder entries keep the portfolio structure complete without inventing project
-            history, results or links.
+            Featured projects emphasize role-based access, operational workflows, relational data
+            models, integrations and production deployment.
           </p>
         </Reveal>
 

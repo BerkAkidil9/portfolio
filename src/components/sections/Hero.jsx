@@ -37,7 +37,7 @@ export function Hero() {
             variants={prefersReducedMotion ? undefined : itemVariants}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            Professional portfolio
+            Home
           </motion.p>
           <motion.p
             className={styles.name}

@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { skillCategories } from '../../data/skills.js';
 import { Reveal } from '../ui/Reveal.jsx';
-import styles from './TechnologiesSection.module.css';
+import styles from './SkillsSection.module.css';
 
 const gridVariants = {
   hidden: {},
@@ -17,19 +17,19 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
-export function TechnologiesSection() {
+export function SkillsSection() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className={styles.section} id="technologies" aria-labelledby="technologies-title">
+    <section className={styles.section} id="skills" aria-labelledby="skills-title">
       <div className="section-shell">
         <Reveal>
-          <p className="section-kicker">Technical map</p>
-          <h2 className="section-heading" id="technologies-title">
-            A categorized technology area prepared for source-backed skills.
+          <p className="section-kicker">Skills map</p>
+          <h2 className="section-heading" id="skills-title">
+            A categorized skills area prepared for source-backed project evidence.
           </h2>
           <p className="section-copy">
-            No skill percentages or unsupported seniority labels are used. Verified technologies can
+            No percentages or unsupported seniority labels are used. Verified skills can
             be connected to projects later.
           </p>
         </Reveal>

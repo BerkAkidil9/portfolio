@@ -10,7 +10,13 @@ export function ActionLink({ href, children, variant = 'primary', disabled = fal
   }
 
   return (
-    <a className={`${styles.action} ${styles[variant]}`} href={href} aria-label={ariaLabel}>
+    <a
+      className={`${styles.action} ${styles[variant]}`}
+      href={href}
+      aria-label={ariaLabel}
+      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      target={href.startsWith('http') ? '_blank' : undefined}
+    >
       {children}
     </a>
   );

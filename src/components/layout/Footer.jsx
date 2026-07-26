@@ -10,7 +10,7 @@ export function Footer() {
       <div className={`section-shell ${styles.inner}`}>
         <div>
           <p className={styles.name}>{hero.name}</p>
-          <p className={styles.copy}>A cinematic developer portfolio shell ready for final content.</p>
+          <p className={styles.copy}>Full-stack software developer focused on scalable web applications.</p>
         </div>
 
         <div className={styles.meta}>
@@ -23,7 +23,7 @@ export function Footer() {
                 </a>
               ) : (
                 <span key={link.id} aria-disabled="true">
-                  {link.placeholder}
+                  {link.label} coming soon
                 </span>
               ),
             )}

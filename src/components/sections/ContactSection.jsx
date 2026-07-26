@@ -23,17 +23,17 @@ export function ContactSection() {
         <Reveal>
           <p className="section-kicker">Contact</p>
           <h2 className="section-heading" id="contact-title">
-            Contact paths are prepared, but final links are still placeholders.
+            Open to software engineering opportunities and project conversations.
           </h2>
           <p className="section-copy">{contact.message}</p>
 
           <div className={styles.links}>
-            <ActionLink disabled={!contact.email} variant="secondary">
+            <ActionLink href={`mailto:${contact.email}`} disabled={!contact.email} variant="secondary">
               {contact.email}
             </ActionLink>
             {socialLinks.map((link) => (
               <ActionLink key={link.id} href={link.url} disabled={!link.url} variant="ghost">
-                {link.label} coming soon
+                {link.url ? link.label : `${link.label} coming soon`}
               </ActionLink>
             ))}
           </div>

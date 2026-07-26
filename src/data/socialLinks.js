@@ -2,19 +2,16 @@ export const socialLinks = [
   {
     id: 'github',
     label: 'GitHub',
-    url: null,
-    placeholder: '[PLACEHOLDER: GitHub profile URL]',
+    url: 'https://github.com/BerkAkidil9',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    url: null,
-    placeholder: '[PLACEHOLDER: LinkedIn profile URL]',
+    url: 'https://www.linkedin.com/in/berkakidil/',
   },
   {
     id: 'cv',
     label: 'CV',
-    url: null,
-    placeholder: '[PLACEHOLDER: CV file or URL]',
+    url: '/docs/resume-berk-akidil.pdf',
   },
 ];

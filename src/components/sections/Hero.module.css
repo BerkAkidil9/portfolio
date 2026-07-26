@@ -85,11 +85,11 @@
 }
 
 .content h1 {
-  max-width: 10ch;
+  max-width: 14ch;
   margin-top: var(--space-md);
   color: var(--color-text-primary);
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
-  line-height: 0.98;
+  font-size: clamp(2.35rem, 4.8vw, 4.35rem);
+  line-height: 1.02;
   overflow-wrap: anywhere;
   text-shadow: 0 0 46px rgba(100, 215, 255, 0.18);
 }
@@ -152,8 +152,8 @@
   }
 
   .content h1 {
-    max-width: 8ch;
-    font-size: clamp(2.7rem, 12vw, 4.2rem);
+    max-width: 12ch;
+    font-size: clamp(2rem, 8.8vw, 3rem);
   }
 }
 
