@@ -3,9 +3,9 @@ import { useReducedMotion } from 'framer-motion';
 import { hero, introHighlights } from '../../data/portfolio.js';
 import styles from './LaunchIntro.module.css';
 
-const INTRO_STORAGE_KEY = 'berk-portfolio-launch-intro-seen-v5';
-const AUTO_DISMISS_MS = 7200;
-const EXIT_MS = 740;
+const INTRO_STORAGE_KEY = 'berk-portfolio-launch-intro-seen-v7';
+const AUTO_DISMISS_MS = 7350;
+const EXIT_MS = 900;
 
 function hasSeenIntro() {
   if (import.meta.env.DEV) {
@@ -94,13 +94,24 @@ export function LaunchIntro() {
       aria-live="polite"
       aria-label="Portfolio launch intro"
     >
+      <span className={styles.backgroundVideo} aria-hidden="true">
+        <video
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onLoadedMetadata={(event) => {
+            event.currentTarget.currentTime = 1.8;
+          }}
+        >
+          <source src="/videos/intro-space-atmosphere.mp4" type="video/mp4" />
+        </video>
+      </span>
+      <div className={styles.watermarkCover} aria-hidden="true" />
       <div className={styles.starfield} />
       <div className={styles.nebula} />
-      <div className={styles.scanline} />
-      <div className={styles.comet} />
-      <div className={styles.distantComet} />
       <div className={styles.panel}>
-        <div className={styles.orbit} />
+        <div className={styles.galaxyMark} />
         <strong className={styles.name}>{hero.name}</strong>
         <span className={styles.role}>{hero.role} Portfolio</span>
         <div className={styles.progress} aria-hidden="true">

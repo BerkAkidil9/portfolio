@@ -12,22 +12,63 @@
     rgba(1, 3, 10, 0.96);
   color: var(--color-text-primary);
   cursor: var(--cursor-spacecraft-pointer);
-  animation: intro-arrive 520ms var(--ease-standard) both;
+  animation: intro-arrive 360ms var(--ease-standard) both;
 }
 
 .leaving {
   pointer-events: none;
-  animation: intro-exit 650ms var(--ease-standard) both;
+  animation: intro-exit 900ms var(--ease-standard) both;
 }
 
+.backgroundVideo,
+.watermarkCover,
 .starfield,
-.nebula,
-.comet,
-.distantComet,
-.scanline {
+.nebula {
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+.backgroundVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  animation: intro-video-presence 5700ms var(--ease-standard) 2.25s both;
+}
+
+.backgroundVideo video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.18);
+  transform-origin: center;
+  filter: saturate(1.08) contrast(1.12) brightness(0.92);
+  mix-blend-mode: screen;
+}
+
+.watermarkCover {
+  inset: auto 0 0 auto;
+  z-index: 1;
+  width: clamp(15rem, 34vw, 36rem);
+  height: clamp(9rem, 30vh, 20rem);
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(1, 3, 10, 1), rgba(1, 3, 10, 0.98) 38%, rgba(1, 3, 10, 0.68) 62%, transparent 76%),
+    linear-gradient(135deg, transparent 0 34%, rgba(1, 3, 10, 0.86) 72%, rgba(1, 3, 10, 1) 100%);
+}
+
+.overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(1, 3, 10, 0.1) 0 12rem, rgba(1, 3, 10, 0.24) 23rem),
+    linear-gradient(90deg, rgba(1, 3, 10, 0.62), rgba(1, 3, 10, 0.12), rgba(1, 3, 10, 0.62)),
+    rgba(1, 3, 10, 0.12);
 }
 
 .starfield {
@@ -53,91 +94,70 @@
     radial-gradient(ellipse at 66% 54%, rgba(87, 104, 190, 0.12), transparent 24rem),
     radial-gradient(ellipse at 50% 78%, rgba(245, 200, 106, 0.055), transparent 22rem);
   filter: blur(4px);
-  opacity: 0;
-  animation: intro-nebula 7.2s var(--ease-standard) both;
-}
-
-.scanline {
-  top: 50%;
-  bottom: auto;
-  height: min(36vh, 18rem);
-  background:
-    linear-gradient(180deg, transparent, rgba(100, 215, 255, 0.065), transparent),
-    linear-gradient(90deg, transparent, rgba(245, 200, 106, 0.04), transparent);
-  transform: translateY(-58%);
-  opacity: 0;
-  animation: intro-scan 5.3s var(--ease-standard) 0.65s both;
-}
-
-.comet,
-.distantComet {
-  inset: 12% auto auto -16rem;
-  width: 16rem;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 200, 106, 0.1), rgba(100, 215, 255, 0.72));
-  box-shadow:
-    0 0 0.8rem rgba(100, 215, 255, 0.34),
-    0 0 1.4rem rgba(245, 200, 106, 0.14);
-  transform: rotate(-10deg);
-  opacity: 0;
-  animation: intro-comet 3.5s var(--ease-standard) 1.05s both;
-}
-
-.distantComet {
-  inset: auto -12rem 24% auto;
-  width: 12rem;
-  background: linear-gradient(270deg, transparent, rgba(100, 215, 255, 0.12), rgba(245, 200, 106, 0.58));
-  transform: rotate(9deg);
-  opacity: 0;
-  animation-name: intro-distant-comet;
-  animation-delay: 3.95s;
-  animation-duration: 2.7s;
+  opacity: 0.34;
 }
 
 .panel {
   position: relative;
+  z-index: 1;
   display: grid;
   justify-items: center;
   box-sizing: border-box;
   width: min(100% - 2rem, 38rem);
   padding: clamp(2.4rem, 5vw, 4rem);
   text-align: center;
-  animation: intro-panel 6.8s var(--ease-standard) both;
+  animation: intro-panel 520ms var(--ease-standard) both;
 }
 
-.orbit {
-  width: clamp(4.6rem, 12vw, 6.5rem);
+.galaxyMark {
+  position: relative;
+  width: clamp(4.85rem, 10vw, 6.15rem);
   aspect-ratio: 1;
   margin-bottom: var(--space-md);
-  border: 1px solid rgba(100, 215, 255, 0.42);
   border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(219, 229, 247, 0.96) 0 0.18rem, rgba(100, 215, 255, 0.92) 0.22rem, transparent 0.58rem),
+    radial-gradient(circle at 50% 50%, rgba(100, 215, 255, 0.2), transparent 2.1rem);
   box-shadow:
-    inset 0 0 1.4rem rgba(100, 215, 255, 0.08),
-    0 0 2.4rem rgba(100, 215, 255, 0.14);
-  transform: rotate(-18deg);
-  animation: intro-orbit 7.2s var(--ease-standard) both;
+    0 0 1.4rem rgba(100, 215, 255, 0.26),
+    0 0 3.4rem rgba(100, 215, 255, 0.1);
+  animation: intro-aperture-arrive 720ms var(--ease-standard) both;
 }
 
-.orbit::before,
-.orbit::after {
+.galaxyMark::before,
+.galaxyMark::after {
   content: "";
   position: absolute;
   border-radius: 999px;
 }
 
-.orbit::before {
-  inset: 43% -28%;
-  border-top: 1px solid rgba(245, 200, 106, 0.52);
-  transform: rotate(-11deg);
+.galaxyMark::before {
+  inset: 0;
+  background:
+    conic-gradient(
+      from 8deg,
+      transparent 0 34deg,
+      rgba(100, 215, 255, 0.82) 44deg 72deg,
+      transparent 86deg 164deg,
+      rgba(245, 200, 106, 0.72) 180deg 205deg,
+      transparent 220deg 296deg,
+      rgba(219, 229, 247, 0.58) 314deg 334deg,
+      transparent 348deg 360deg
+    );
+  mask: radial-gradient(circle, transparent 0 48%, #000 50% 59%, transparent 61%);
+  animation: intro-aperture-spin 7.2s linear infinite;
 }
 
-.orbit::after {
-  width: 0.5rem;
-  aspect-ratio: 1;
-  top: 14%;
-  right: 14%;
-  background: var(--color-accent-primary);
-  box-shadow: var(--glow-accent);
+.galaxyMark::after {
+  inset: 24%;
+  background:
+    radial-gradient(circle at 38% 34%, rgba(219, 229, 247, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 66%, rgba(245, 200, 106, 0.72) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 50% 50%, rgba(100, 215, 255, 0.34), transparent 62%);
+  box-shadow:
+    inset 0 0 0.8rem rgba(1, 3, 10, 0.78),
+    0 0 1.2rem rgba(100, 215, 255, 0.22);
+  animation: intro-aperture-pulse 2.4s var(--ease-standard) infinite;
 }
 
 .name {
@@ -178,7 +198,7 @@
   box-shadow: var(--glow-accent);
   transform: scaleX(0);
   transform-origin: left;
-  animation: intro-progress 4.85s linear 1.75s both;
+  animation: intro-progress 6s linear 1.35s both;
 }
 
 .statusList {
@@ -188,6 +208,7 @@
   margin: var(--space-md) 0 0;
   padding: 0;
   list-style: none;
+  contain: layout paint;
 }
 
 .statusList li {
@@ -203,8 +224,10 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   opacity: 0;
-  transform: translateY(0.45rem);
-  animation: intro-step 520ms var(--ease-standard) both;
+  backface-visibility: hidden;
+  contain: paint;
+  will-change: opacity;
+  animation: intro-step 620ms var(--ease-standard) both;
 }
 
 .statusList li::before {
@@ -217,23 +240,24 @@
 }
 
 .statusList li:nth-child(1) {
-  animation-delay: 1.95s;
+  animation-delay: 1.2s;
 }
 
 .statusList li:nth-child(2) {
-  animation-delay: 2.85s;
+  animation-delay: 1.9s;
 }
 
 .statusList li:nth-child(3) {
-  animation-delay: 3.75s;
+  animation-delay: 2.6s;
 }
 
 .statusList li:nth-child(4) {
-  animation-delay: 4.65s;
+  animation-delay: 3.3s;
 }
 
 .skip {
   position: fixed;
+  z-index: 1;
   right: clamp(1rem, 3vw, 2rem);
   bottom: clamp(1rem, 3vw, 2rem);
   min-height: 2.5rem;
@@ -272,9 +296,12 @@
 }
 
 @keyframes intro-exit {
+  from {
+    opacity: 1;
+  }
+
   to {
     opacity: 0;
-    transform: scale(1.018);
   }
 }
 
@@ -287,113 +314,59 @@
   }
 }
 
-@keyframes intro-nebula {
+@keyframes intro-video-presence {
   0% {
     opacity: 0;
-    transform: scale(1.08);
   }
 
-  25%,
-  84% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.2;
-    transform: scale(1.01);
-  }
-}
-
-@keyframes intro-scan {
-  0% {
-    opacity: 0;
-    transform: translateY(-58%);
-  }
-
-  18%,
-  62% {
-    opacity: 1;
+  30%,
+  76% {
+    opacity: 0.52;
   }
 
   100% {
     opacity: 0;
-    transform: translateY(38%);
-  }
-}
-
-@keyframes intro-comet {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(-10deg);
-  }
-
-  18%,
-  72% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(120vw, 18vh, 0) rotate(-10deg);
-  }
-}
-
-@keyframes intro-distant-comet {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(9deg);
-  }
-
-  20%,
-  68% {
-    opacity: 0.86;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(-110vw, -10vh, 0) rotate(9deg);
   }
 }
 
 @keyframes intro-panel {
-  0% {
+  from {
     opacity: 0;
-    transform: translateY(0.8rem) scale(0.98);
   }
 
-  12%,
-  86% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  100% {
-    opacity: 0.92;
-    transform: translateY(-0.35rem) scale(1);
-  }
-}
-
-@keyframes intro-orbit {
-  0% {
-    opacity: 0;
-    transform: rotate(-18deg) scale(0.82);
-  }
-
-  22% {
-    opacity: 1;
-    transform: rotate(-18deg) scale(1);
-  }
-
-  100% {
-    opacity: 1;
-    transform: rotate(18deg) scale(1);
-  }
-}
-
-@keyframes intro-item {
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@keyframes intro-aperture-arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-aperture-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes intro-aperture-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
   }
 }
 
@@ -404,9 +377,12 @@
 }
 
 @keyframes intro-step {
+  from {
+    opacity: 0;
+  }
+
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -442,16 +418,18 @@
 @media (prefers-reduced-motion: reduce) {
   .overlay,
   .leaving,
+  .backgroundVideo,
   .starfield,
   .nebula,
-  .scanline,
-  .comet,
-  .distantComet,
   .panel,
-  .orbit,
+  .galaxyMark,
   .progress,
   .progress span,
   .statusList li {
     animation: none;
+  }
+
+  .backgroundVideo {
+    display: none;
   }
 }
