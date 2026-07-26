@@ -8,6 +8,7 @@ import { AboutSection } from './components/sections/AboutSection.jsx';
 import { JourneySection } from './components/sections/JourneySection.jsx';
 import { ContactSection } from './components/sections/ContactSection.jsx';
 import { CursorTrail } from './components/ui/CursorTrail.jsx';
+import { LaunchIntro } from './components/ui/LaunchIntro.jsx';
 import { navigationItems } from './data/portfolio.js';
 
 const Experience = lazy(() =>
@@ -20,6 +21,7 @@ function App() {
       <Suspense fallback={null}>
         <Experience />
       </Suspense>
+      <LaunchIntro />
       <CursorTrail />
       <Navigation items={navigationItems} />
       <main>

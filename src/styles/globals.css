@@ -23,6 +23,10 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.launch-intro-open {
+  overflow: hidden;
+}
+
 body::before {
   content: "";
   position: fixed;

@@ -25,6 +25,13 @@ export const hero = {
   secondaryAction: { label: 'Contact', href: '#contact' },
 };
 
+export const introHighlights = [
+  '[PLACEHOLDER: Short professional focus]',
+  '[PLACEHOLDER: Primary portfolio highlight]',
+  '[PLACEHOLDER: Main technology stack summary]',
+  '[PLACEHOLDER: Contact or availability note]',
+];
+
 export const about = {
   biography: '[PLACEHOLDER: About biography]',
   focus: '[PLACEHOLDER: Development focus]',
