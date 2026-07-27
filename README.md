@@ -81,8 +81,6 @@ If the site is deployed under a subpath, update the Vite base configuration befo
 
 Portfolio content is centralized in `src/data/` so profile text, links, project entries and technology lists can be updated without rewriting presentation components.
 
-The contact form backend is not configured in this frontend-only version.
-
 ## License
 
 This project is open source under the MIT License. See `LICENSE` for details.

@@ -64,5 +64,4 @@ export const contact = {
   github: 'https://github.com/BerkAkidil9',
   linkedin: 'https://www.linkedin.com/in/berkakidil/',
   cv: '/docs/resume-berk-akidil.pdf',
-  formNotice: 'Contact form sending is not configured in this initial version.',
 };
