@@ -7,7 +7,7 @@ export const seo = {
   openGraphDescription:
     'Portfolio of Berk Akidil, featuring Django CRM, Swim Center and full-stack web application work.',
   openGraphImage: '/og-image.png',
-  canonicalUrl: '[PLACEHOLDER: Canonical URL]',
+  canonicalUrl: 'https://portfolio-snowy-eight-92.vercel.app/',
   favicon: '/favicon-32x32.png',
 };
 
