@@ -2,6 +2,8 @@
 
 A personal web developer portfolio built with React, Vite and Three.js. The site presents Berk Akidil's featured projects, technology stack, background, contact links and a cinematic space-inspired visual experience.
 
+Live site: https://portfolio-snowy-eight-92.vercel.app/
+
 ## Tech Stack
 
 - React
@@ -55,7 +57,15 @@ npm run lint
 
 ## Deployment
 
-This is a static Vite application. It can be deployed to GitHub Pages, Vercel, Netlify, Render Static Sites or any static hosting provider.
+This is a static Vite application deployed on Vercel from the `main` branch.
+
+Production URL:
+
+```text
+https://portfolio-snowy-eight-92.vercel.app/
+```
+
+It can also be deployed to GitHub Pages, Netlify, Render Static Sites or any static hosting provider.
 
 For most providers, use:
 
