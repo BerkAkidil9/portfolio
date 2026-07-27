@@ -1,35 +1,81 @@
 .action {
+  position: relative;
   display: inline-flex;
+  min-width: 10.75rem;
   min-height: 2.9rem;
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  padding: 0.8rem 1.05rem;
+  overflow: hidden;
+  padding: 0.82rem 1.2rem;
   border-radius: var(--radius-sm);
-  border: 1px solid transparent;
+  border: 1px solid var(--color-border-strong);
   font-size: var(--font-size-sm);
   font-weight: 700;
   line-height: 1.1;
+  isolation: isolate;
   transition:
     transform var(--duration-fast) var(--ease-standard),
     border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
     background var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard);
 }
 
-.action:hover {
-  transform: translateY(-1px);
+.action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 0 28%, rgba(255, 255, 255, 0.26) 48%, transparent 68%);
+  opacity: 0;
+  transform: translateX(-70%);
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard);
+}
+
+.action:hover,
+.action:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(100, 215, 255, 0.72);
+  box-shadow: 0 0 34px rgba(100, 215, 255, 0.24);
+}
+
+.action:hover::before,
+.action:focus-visible::before {
+  opacity: 1;
+  transform: translateX(70%);
 }
 
 .primary {
-  background: linear-gradient(135deg, var(--color-accent-primary), #3f8cff);
+  background:
+    linear-gradient(135deg, var(--color-accent-primary), #3f8cff),
+    rgba(9, 22, 38, 0.78);
   color: #031120;
   box-shadow: var(--glow-accent);
 }
 
+.primary:hover,
+.primary:focus-visible {
+  background:
+    linear-gradient(135deg, #8fe4ff, #64d7ff 42%, #4a95ff),
+    rgba(9, 22, 38, 0.78);
+}
+
 .secondary {
   border-color: var(--color-border-strong);
-  background: rgba(9, 22, 38, 0.66);
+  background:
+    linear-gradient(135deg, rgba(100, 215, 255, 0.12), rgba(63, 140, 255, 0.08)),
+    rgba(9, 22, 38, 0.74);
+  color: var(--color-text-primary);
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  background:
+    linear-gradient(135deg, rgba(100, 215, 255, 0.22), rgba(63, 140, 255, 0.14)),
+    rgba(10, 29, 50, 0.88);
   color: var(--color-text-primary);
 }
 
@@ -40,6 +86,7 @@
 }
 
 .disabled {
+  min-width: 10.75rem;
   cursor: not-allowed;
   border-color: var(--color-border);
   background: rgba(255, 255, 255, 0.035);
@@ -49,4 +96,8 @@
 
 .disabled:hover {
   transform: none;
+}
+
+.disabled::before {
+  display: none;
 }

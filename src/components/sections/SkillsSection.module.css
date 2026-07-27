@@ -9,7 +9,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   gap: var(--space-md);
   margin-top: var(--space-xl);
 }
@@ -62,13 +62,14 @@
 .category p {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+  overflow-wrap: anywhere;
 }
 
 .badges {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  margin-top: auto;
+  margin-top: var(--space-xs);
 }
 
 .badges span {
@@ -120,7 +121,7 @@
 
 @media (max-width: 1120px) {
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

@@ -132,6 +132,20 @@
     linear-gradient(135deg, #07101f, #101a2d);
 }
 
+.mediaButton {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+}
+
 .media img {
   width: 100%;
   height: 100%;
@@ -139,8 +153,35 @@
   transition: transform 900ms var(--ease-standard);
 }
 
-.card:hover .media img {
+.card:hover .media img,
+.mediaButton:focus-visible img {
   transform: scale(1.045);
+}
+
+.zoomHint {
+  position: absolute;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: 2;
+  border: 1px solid rgba(100, 215, 255, 0.38);
+  border-radius: var(--radius-pill);
+  padding: 0.34rem 0.64rem;
+  background: rgba(1, 5, 13, 0.72);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.mediaButton:hover .zoomHint,
+.mediaButton:focus-visible .zoomHint {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .mediaPlaceholder {
@@ -245,6 +286,29 @@
   line-height: 1.15;
 }
 
+.skillList span {
+  background: rgba(1, 5, 13, 0.42);
+  color: var(--color-accent-primary);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.card:hover .skillList span {
+  border-color: rgba(100, 215, 255, 0.32);
+}
+
+.skillList span:hover {
+  background: rgba(100, 215, 255, 0.08);
+  border-color: rgba(100, 215, 255, 0.58);
+  color: var(--color-text-primary);
+  box-shadow: 0 0 18px rgba(100, 215, 255, 0.12);
+  transform: translateY(-2px);
+}
+
 .featured {
   border-color: rgba(245, 200, 106, 0.38);
   color: var(--color-accent-warm);
@@ -293,6 +357,90 @@
   opacity: 0.76;
 }
 
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(100, 215, 255, 0.12), transparent 28rem),
+    rgba(1, 4, 12, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.lightboxPanel {
+  display: grid;
+  width: min(100%, 76rem);
+  max-height: min(92vh, 58rem);
+  overflow: hidden;
+  border: 1px solid rgba(100, 215, 255, 0.24);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 54%),
+    rgba(4, 10, 20, 0.94);
+  box-shadow:
+    var(--shadow-card),
+    0 0 70px rgba(100, 215, 255, 0.16);
+}
+
+.lightboxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lightboxHeader p {
+  color: var(--color-accent-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+
+.lightboxHeader h3 {
+  margin-top: var(--space-2xs);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+.closeButton {
+  display: inline-grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: rgba(1, 5, 13, 0.46);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  border-color: rgba(100, 215, 255, 0.54);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.lightboxPanel > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(92vh - 5.2rem);
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.02);
+}
+
 @keyframes mediaSweep {
   0%,
   36% {
@@ -301,5 +449,20 @@
 
   100% {
     transform: translateX(40%);
+  }
+}
+
+@media (max-width: 640px) {
+  .zoomHint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .lightbox {
+    padding: var(--space-sm);
+  }
+
+  .lightboxHeader {
+    padding: var(--space-sm);
   }
 }

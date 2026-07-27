@@ -1,36 +1,76 @@
 export const skillCategories = [
   {
+    id: 'programming-languages',
+    label: 'Programming Languages',
+    description: 'Languages I use to build web applications, APIs, automation and software tools.',
+    items: ['Java', 'Python', 'JavaScript', 'TypeScript'],
+  },
+  {
     id: 'frontend',
     label: 'Frontend',
-    description:
-      'Responsive, component-based interfaces supported by the Swim Center frontend and profile README.',
-    items: ['React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'Responsive Design'],
+    description: 'Libraries, frameworks and browser technologies for responsive user interfaces.',
+    items: [
+      'React.js',
+      'HTML5',
+      'CSS3',
+      'Tailwind CSS',
+      'Bootstrap',
+      'Responsive Design',
+      'Redux Toolkit',
+      'Zustand',
+      'TanStack Query',
+    ],
   },
   {
     id: 'backend',
     label: 'Backend',
-    description:
-      'Backend application work across Django CRM, Node.js/Express systems and Java internship tooling.',
-    items: ['Django', 'Node.js', 'Express.js', 'Spring Boot', 'FastAPI', 'RESTful APIs'],
+    description: 'Backend frameworks, API development and auth tooling.',
+    items: ['Spring Boot', 'Node.js', 'Express.js', 'Django', 'FastAPI', 'RESTful APIs', 'JWT', 'OAuth 2.0'],
   },
   {
-    id: 'database',
-    label: 'Database',
-    description:
-      'Relational data modeling and operational reporting backed by PostgreSQL and MySQL sources.',
-    items: ['PostgreSQL', 'MySQL', 'SQL', 'Neon', 'Cloudflare R2'],
+    id: 'databases-storage',
+    label: 'Databases & Storage',
+    description: 'Technologies for relational data management, caching and persistent file storage.',
+    items: ['SQL', 'PostgreSQL', 'MySQL', 'Redis', 'Cloudflare R2', 'Neon'],
   },
   {
-    id: 'tools',
-    label: 'Tools',
-    description:
-      'Version control, testing, deployment and integration tooling used across internships and projects.',
-    items: ['Git', 'GitHub', 'Docker', 'Apache Maven', 'Postman', 'Render', 'Chart.js'],
+    id: 'testing-qa',
+    label: 'Testing & QA',
+    description: 'Testing practices and tools for unit, integration and end-to-end validation.',
+    items: [
+      'Unit Testing',
+      'Integration Testing',
+      'End-to-End Testing',
+      'Jest',
+      'Vitest',
+      'Django Testing Framework',
+      'Supertest',
+      'Playwright',
+    ],
   },
   {
-    id: 'currently-learning',
-    label: 'Currently Learning',
-    description: '[PLACEHOLDER: Current learning focus]',
-    items: ['[PLACEHOLDER: Learning skill]'],
+    id: 'tools-deployment',
+    label: 'Tools & Deployment',
+    description: 'Tools for version control, API work, dependency management, CI/CD and deployment.',
+    items: ['Git', 'GitHub', 'Docker', 'Apache Maven', 'Postman', 'OpenAPI/Swagger UI', 'GitHub Actions', 'Render'],
+  },
+  {
+    id: 'core-concepts',
+    label: 'Core Concepts',
+    description: 'Software engineering concepts behind application architecture and implementation.',
+    items: [
+      'Object-Oriented Programming',
+      'Data Structures & Algorithms',
+      'MVC Architecture',
+      'Software Design Patterns',
+      'Asynchronous Programming',
+    ],
+  },
+  {
+    id: 'ai-assisted-development',
+    label: 'AI-Assisted Development',
+    description:
+      'AI tools used responsibly for debugging, documentation, code review and refactoring with manual validation.',
+    items: ['ChatGPT', 'Gemini', 'Cursor', 'GitHub Copilot', 'OpenAI Codex'],
   },
 ];

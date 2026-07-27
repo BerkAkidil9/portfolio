@@ -18,7 +18,7 @@ export const journeyGroups = [
         title: 'Software Developer Intern',
         organization: 'CPF Türkiye · Istanbul, Turkey · On-site',
         description:
-          'Built a Django and PostgreSQL CRM application covering lead and agent management, role-based access control, sales dashboards, product and stock operations, order workflows, task management, notifications, scheduled reminders and Django tests.',
+          'Developed a CRM application with Django and PostgreSQL, covering lead and agent management, role-based access control, sales dashboards, product and stock operations, order workflows, task management, notifications, scheduled reminders and Django tests.',
         type: 'Professional Experience',
       },
       {
@@ -35,12 +35,10 @@ export const journeyGroups = [
   {
     id: 'education',
     title: 'Education',
-    description: 'Computer Science education background supplied through GitHub and LinkedIn profile content.',
-    note: 'Education dates are still needed before this entry can be fully completed.',
+    description: '',
     items: [
       {
         id: 'ozyegin-university-computer-science',
-        period: '[PLACEHOLDER: Education date or period]',
         title: 'Computer Science Graduate',
         organization: 'Özyeğin University',
         description:

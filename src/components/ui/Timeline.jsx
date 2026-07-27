@@ -7,7 +7,7 @@ export function Timeline({ items }) {
         <li className={styles.item} key={item.id}>
           <span className={styles.marker} aria-hidden="true" />
           <div className={styles.content}>
-            <p className={styles.period}>{item.period}</p>
+            {item.period && <p className={styles.period}>{item.period}</p>}
             <h3>{item.title}</h3>
             <p className={styles.organization}>{item.organization}</p>
             <p>{item.description}</p>

@@ -24,13 +24,12 @@ export function SkillsSection() {
     <section className={styles.section} id="skills" aria-labelledby="skills-title">
       <div className="section-shell">
         <Reveal>
-          <p className="section-kicker">Skills map</p>
+          <p className="section-kicker">Technical Skills</p>
           <h2 className="section-heading" id="skills-title">
-            A categorized skills area prepared for source-backed project evidence.
+            Technologies, tools and concepts I work with.
           </h2>
           <p className="section-copy">
-            No percentages or unsupported seniority labels are used. Verified skills can
-            be connected to projects later.
+            A practical overview of my development stack, tooling and engineering focus areas.
           </p>
         </Reveal>
 

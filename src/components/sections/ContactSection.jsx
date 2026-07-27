@@ -38,32 +38,6 @@ export function ContactSection() {
             ))}
           </div>
         </Reveal>
-
-        <Reveal className={styles.form} as="form" delay={0.12} viewportAmount={0.16}>
-          <div className={styles.formRow}>
-            <label htmlFor="contact-name">Name</label>
-            <input id="contact-name" name="name" placeholder="[PLACEHOLDER: Sender name]" />
-          </div>
-          <div className={styles.formRow}>
-            <label htmlFor="contact-email">Email</label>
-            <input id="contact-email" name="email" placeholder="[PLACEHOLDER: Sender email]" />
-          </div>
-          <div className={styles.formRow}>
-            <label htmlFor="contact-message">Message</label>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows="5"
-              placeholder="[PLACEHOLDER: Contact form message]"
-            />
-          </div>
-          <p className={styles.notice} id="form-notice">
-            {contact.formNotice}
-          </p>
-          <button className={styles.submit} type="button" disabled>
-            Sending not configured
-          </button>
-        </Reveal>
       </div>
     </section>
   );

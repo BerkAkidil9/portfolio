@@ -38,18 +38,19 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
   align-items: start;
 }
 
-.panel {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-md);
+.intro {
+  grid-row: span 2;
+  padding-right: clamp(1rem, 3vw, 2.6rem);
 }
 
 .field {
+  position: relative;
+  overflow: hidden;
   min-height: 12rem;
   padding: var(--space-lg);
   border: 1px solid var(--color-border);
@@ -57,19 +58,63 @@
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent 60%),
     rgba(9, 20, 36, 0.64);
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard);
+}
+
+.field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(149, 190, 232, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(149, 190, 232, 0.01) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.field:hover {
+  border-color: rgba(100, 215, 255, 0.38);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.24),
+    0 0 28px rgba(100, 215, 255, 0.07);
+  transform: translateY(-3px);
+}
+
+.field:hover::before {
+  opacity: 1;
+}
+
+.wideField {
+  grid-column: span 2;
+}
+
+.workingField {
+  margin-top: 0;
 }
 
 .field h3 {
+  position: relative;
   color: var(--color-accent-primary);
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   text-transform: uppercase;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .field p {
+  position: relative;
   margin-top: var(--space-md);
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+}
+
+.field:hover h3 {
+  color: var(--color-text-primary);
 }
 
 @keyframes galaxyDrift {
@@ -86,7 +131,21 @@
 
 @media (max-width: 940px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .intro {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding-right: 0;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+
+  .workingField {
+    margin-top: 0;
   }
 }
 
@@ -99,7 +158,7 @@
     opacity: 0.34;
   }
 
-  .panel {
+  .grid {
     grid-template-columns: 1fr;
   }
 

@@ -18,13 +18,27 @@
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(2rem, 6vw, 5rem);
+  gap: var(--space-lg) clamp(2rem, 6vw, 5rem);
   align-items: start;
 }
 
+.intro {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .groups {
-  display: grid;
-  gap: var(--space-lg);
+  display: contents;
+}
+
+.experienceGroup {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.educationGroup {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .group {
@@ -35,6 +49,16 @@
     linear-gradient(135deg, rgba(100, 215, 255, 0.075), transparent 34%),
     rgba(9, 20, 36, 0.54);
   box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.group:hover {
+  border-color: rgba(100, 215, 255, 0.3);
+  box-shadow:
+    var(--shadow-card),
+    0 0 36px rgba(100, 215, 255, 0.08);
 }
 
 .groupHeader {
@@ -65,5 +89,17 @@
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .intro,
+  .experienceGroup,
+  .educationGroup {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .groups {
+    display: grid;
+    gap: var(--space-lg);
   }
 }

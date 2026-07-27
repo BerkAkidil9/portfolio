@@ -33,22 +33,22 @@ export const introHighlights = [
   'Full-stack development with JavaScript, TypeScript, Python and Java',
   'Business workflow platforms with role-based access and operational dashboards',
   'React, Django, Node.js, Express, PostgreSQL, MySQL and deployment workflows',
-  'Seeking software engineering opportunities focused on secure, scalable and business-oriented applications',
+  'Seeking software engineering opportunities',
 ];
 
 export const about = {
   biography:
-    'Berk Akidil is a Computer Science graduate from Özyeğin University and a full-stack software developer focused on building secure, scalable and business-oriented web applications.',
+    'I am a Computer Science graduate from Özyeğin University and a full-stack software developer focused on building secure, scalable and business-oriented web applications.',
   focus:
-    'He works across frontend, backend and relational databases, with project experience in CRM systems, facility management platforms, data integration and role-based workflows.',
+    'I work across frontend, backend and relational databases, with project experience in CRM systems, facility management platforms, data integration and role-based workflows.',
   learningJourney:
-    'His hands-on work includes internships at CPF Türkiye, a multi-tenant Django CRM platform, a Java Excel/XML conversion tool and full-stack projects using React, Node.js, Django and PostgreSQL.',
+    'My hands-on work includes internships at CPF Türkiye, a multi-tenant Django CRM platform, a Java Excel/XML conversion tool and full-stack projects using React, Node.js, Django and PostgreSQL.',
   careerObjective:
-    'Berk is currently seeking software engineering opportunities where he can contribute to scalable applications, improve business workflows and continue growing as a software engineer.',
+    'I am currently seeking software engineering opportunities where I can contribute to scalable applications, improve business workflows and continue growing as a software engineer.',
   workingPrinciples:
-    'He values clean, maintainable code, version control with Git and GitHub, manual validation of technical decisions and responsible use of AI-assisted development tools for debugging, documentation, refactoring and code review.',
+    'I value clean, maintainable code, version control with Git and GitHub, manual validation of technical decisions and responsible use of AI-assisted development tools for debugging, documentation, refactoring and code review.',
   currentInterests:
-    'His interests include multi-tenant applications, backend architecture, business workflow automation, data integration, role-based systems and secure application design.',
+    'My interests include multi-tenant applications, backend architecture, business workflow automation, data integration, role-based systems and secure application design.',
 };
 
 export const contact = {
