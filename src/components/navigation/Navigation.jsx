@@ -5,7 +5,10 @@ import styles from './Navigation.module.css';
 
 export function Navigation({ items }) {
   const [isOpen, setIsOpen] = useState(false);
-  const sectionIds = useMemo(() => items.map((item) => item.id), [items]);
+  const sectionIds = useMemo(
+    () => items.filter((item) => item.href.startsWith('#')).map((item) => item.id),
+    [items],
+  );
   const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
@@ -54,6 +57,8 @@ export function Navigation({ items }) {
               className={activeSection === item.id ? styles.active : ''}
               aria-current={activeSection === item.id ? 'page' : undefined}
               onClick={() => setIsOpen(false)}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+              target={item.external ? '_blank' : undefined}
             >
               {item.label}
             </a>

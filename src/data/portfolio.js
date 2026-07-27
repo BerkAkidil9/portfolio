@@ -18,6 +18,12 @@ export const navigationItems = [
   { label: 'About', href: '#about', id: 'about' },
   { label: 'Experience', href: '#experience', id: 'experience' },
   { label: 'Contact', href: '#contact', id: 'contact' },
+  {
+    label: 'Source Code',
+    href: 'https://github.com/BerkAkidil9/portfolio',
+    id: 'source-code',
+    external: true,
+  },
 ];
 
 export const hero = {

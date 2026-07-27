@@ -9,13 +9,15 @@ export function ActionLink({ href, children, variant = 'primary', disabled = fal
     );
   }
 
+  const opensInNewTab = href.startsWith('http') || href.endsWith('.pdf');
+
   return (
     <a
       className={`${styles.action} ${styles[variant]}`}
       href={href}
       aria-label={ariaLabel}
-      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={opensInNewTab ? 'noopener noreferrer' : undefined}
+      target={opensInNewTab ? '_blank' : undefined}
     >
       {children}
     </a>

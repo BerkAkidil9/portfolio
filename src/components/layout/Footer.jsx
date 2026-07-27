@@ -36,6 +36,7 @@ export function Footer() {
     { id: 'email', label: contact.email, href: `mailto:${contact.email}`, prefix: 'mail' },
     ...socialLinks.map((link) => ({ ...link, href: link.url, prefix: link.id })),
   ].filter((link) => link.href);
+  const opensInNewTab = (href, id) => href.startsWith('http') || id === 'cv';
 
   return (
     <footer className={styles.footer}>
@@ -67,8 +68,8 @@ export function Footer() {
                 key={link.id}
                 aria-label={link.id === 'email' ? `Email ${link.label}` : link.label}
                 href={link.href}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={opensInNewTab(link.href, link.id) ? 'noopener noreferrer' : undefined}
+                target={opensInNewTab(link.href, link.id) ? '_blank' : undefined}
                 title={link.label}
               >
                 {connectIcons[link.id]}

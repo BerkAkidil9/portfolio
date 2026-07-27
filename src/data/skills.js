@@ -11,6 +11,7 @@ export const skillCategories = [
     description: 'Libraries, frameworks and browser technologies for responsive user interfaces.',
     items: [
       'React.js',
+      'Three.js',
       'HTML5',
       'CSS3',
       'Tailwind CSS',
