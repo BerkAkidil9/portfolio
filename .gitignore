@@ -4,3 +4,5 @@ dist
 .eslintcache
 .visual-review
 .DS_Store
+AGENTS.md
+CONTENT_TODO.md
