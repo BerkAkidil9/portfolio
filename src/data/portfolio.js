@@ -6,8 +6,9 @@ export const seo = {
   openGraphTitle: 'Berk Akidil | Software Engineer Portfolio',
   openGraphDescription:
     'Portfolio of Berk Akidil, featuring Django CRM, Swim Center and full-stack web application work.',
-  openGraphImage: '/og-image.png',
-  canonicalUrl: 'https://portfolio-snowy-eight-92.vercel.app/',
+  openGraphImage: 'https://berkakidil.vercel.app/og-image.png',
+  openGraphUrl: 'https://berkakidil.vercel.app/',
+  canonicalUrl: 'https://berkakidil.vercel.app/',
   favicon: '/favicon-32x32.png',
 };
 

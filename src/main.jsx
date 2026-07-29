@@ -19,6 +19,7 @@ setMeta('meta[name="author"]', seo.author);
 setMeta('meta[property="og:title"]', seo.openGraphTitle);
 setMeta('meta[property="og:description"]', seo.openGraphDescription);
 setMeta('meta[property="og:image"]', seo.openGraphImage);
+setMeta('meta[property="og:url"]', seo.openGraphUrl);
 setMeta('link[rel="canonical"]', seo.canonicalUrl, 'href');
 setMeta('link[rel="icon"]', seo.favicon, 'href');
 
