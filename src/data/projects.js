@@ -87,4 +87,33 @@ export const projects = [
       'Maven-based dependency management and project structure',
     ],
   },
+  {
+    id: 'portfolio',
+    slug: 'portfolio',
+    name: 'Interactive Portfolio Website',
+    shortDescription:
+      'A React portfolio website with animated project sections, responsive navigation, 3D space visuals and production deployment.',
+    detailedDescription:
+      'This portfolio presents selected software projects through a responsive React interface with motion, visual effects and structured project data.',
+    screenshot: '/images/projects/interactive-portfolio-website.png',
+    screenshotAlt: 'Interactive portfolio website hero section with space-themed visual design',
+    skills: ['React', 'Vite', 'Three.js', 'Framer Motion', 'CSS Modules', 'Vercel'],
+    githubUrl: 'https://github.com/BerkAkidil9/portfolio',
+    liveDemoUrl: 'https://berkakidil.vercel.app/',
+    status: 'Live site available',
+    featured: true,
+    visualTheme: 'observatory',
+    mainChallenge:
+      'The portfolio needed to communicate technical project depth while still feeling polished, responsive and easy to scan.',
+    mainSolution:
+      'Built a single-page React experience with reusable data-driven sections, animated project cards, 3D visual elements and accessible navigation patterns.',
+    developerRole: 'Frontend developer',
+    keyFeatures: [
+      'Responsive single-page portfolio structure with section-based navigation',
+      'Project cards driven by reusable structured data',
+      '3D space scene and animated interface details using Three.js and Framer Motion',
+      'Reduced-motion support and accessible navigation behavior',
+      'Production deployment with Vercel analytics and speed insights',
+    ],
+  },
 ];
