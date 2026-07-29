@@ -66,10 +66,10 @@ export const projects = [
       'A Java desktop application for bidirectional Excel and XML conversion with invoice, customer and bank information management.',
     detailedDescription:
       'Developed during CPF Türkiye internship work, this desktop tool supports structured data exchange by converting Excel files to XML and XML files back to Excel.',
-    screenshot: null,
-    screenshotAlt: 'Project screenshot coming soon',
+    screenshot: '/images/projects/excel-xml-data-integration-tool.png',
+    screenshotAlt: 'Excel XML Data Integration Tool desktop application interface',
     skills: ['Java', 'Java Swing', 'Apache POI', 'JAXB', 'Maven'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/BerkAkidil9/excel-xml-data-integration-tool',
     liveDemoUrl: null,
     status: 'Internship project',
     featured: true,

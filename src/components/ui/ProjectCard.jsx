@@ -99,9 +99,11 @@ export function ProjectCard({ project, index = 0 }) {
             <ActionLink href={project.githubUrl} variant="ghost" disabled={!project.githubUrl}>
               {project.githubUrl ? 'GitHub' : 'GitHub coming soon'}
             </ActionLink>
-            <ActionLink href={project.liveDemoUrl} variant="secondary" disabled={!project.liveDemoUrl}>
-              {project.liveDemoUrl ? 'Live demo' : 'Live demo coming soon'}
-            </ActionLink>
+            {project.liveDemoUrl && (
+              <ActionLink href={project.liveDemoUrl} variant="secondary">
+                Live demo
+              </ActionLink>
+            )}
           </div>
         </div>
       </motion.article>
