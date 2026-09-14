@@ -1,11 +1,11 @@
 export const seo = {
   title: 'Berk Akidil | Software Engineer Portfolio',
   description:
-    'Full-stack software developer and Computer Science graduate focused on secure, scalable, business-oriented web applications.',
+    'Berk Akidil’s software engineering portfolio: CRM, Swim Center, LineupNest and Java data integration projects.',
   author: 'Berk Akidil',
   openGraphTitle: 'Berk Akidil | Software Engineer Portfolio',
   openGraphDescription:
-    'Portfolio of Berk Akidil, featuring Django CRM, Swim Center and full-stack web application work.',
+    'Berk Akidil’s software engineering portfolio: CRM, Swim Center, LineupNest and Java data integration projects.',
   openGraphImage: 'https://berkakidil.vercel.app/og-image.png',
   openGraphUrl: 'https://berkakidil.vercel.app/',
   canonicalUrl: 'https://berkakidil.vercel.app/',

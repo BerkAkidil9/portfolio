@@ -48,7 +48,11 @@ export function ProjectCard({ project, index = 0 }) {
               aria-label={`View larger screenshot for ${project.name}`}
               onClick={() => setIsLightboxOpen(true)}
             >
-              <img src={project.screenshot} alt={project.screenshotAlt} />
+              <img
+                src={project.screenshot}
+                alt={project.screenshotAlt}
+                style={project.screenshotFit ? { objectFit: project.screenshotFit } : undefined}
+              />
               <span className={styles.zoomHint}>View larger</span>
             </button>
           ) : (
@@ -96,9 +100,11 @@ export function ProjectCard({ project, index = 0 }) {
           </div>
 
           <div className={styles.actions}>
-            <ActionLink href={project.githubUrl} variant="ghost" disabled={!project.githubUrl}>
-              {project.githubUrl ? 'GitHub' : 'GitHub coming soon'}
-            </ActionLink>
+            {project.githubUrl && (
+              <ActionLink href={project.githubUrl} variant="ghost">
+                GitHub
+              </ActionLink>
+            )}
             {project.liveDemoUrl && (
               <ActionLink href={project.liveDemoUrl} variant="secondary">
                 Live demo

@@ -1,3 +1,5 @@
+import { contact } from './portfolio.js';
+
 export const socialLinks = [
   {
     id: 'github',
@@ -12,6 +14,6 @@ export const socialLinks = [
   {
     id: 'cv',
     label: 'CV',
-    url: '/docs/resume-berk-akidil.pdf',
+    url: contact.cv,
   },
 ];

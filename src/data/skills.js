@@ -44,6 +44,8 @@ export const skillCategories = [
       'End-to-End Testing',
       'Jest',
       'Vitest',
+      'React Testing Library',
+      'JUnit',
       'Django Testing Framework',
       'Supertest',
       'Playwright',
@@ -53,7 +55,7 @@ export const skillCategories = [
     id: 'tools-deployment',
     label: 'Tools & Deployment',
     description: 'Tools for version control, API work, dependency management, CI/CD and deployment.',
-    items: ['Git', 'GitHub', 'Docker', 'Apache Maven', 'Postman', 'OpenAPI/Swagger UI', 'GitHub Actions', 'Render'],
+    items: ['Git', 'GitHub', 'Docker', 'Apache Maven', 'Postman', 'OpenAPI/Swagger UI', 'GitHub Actions', 'Vite', 'Render', 'Vercel', 'Cloudflare Pages'],
   },
   {
     id: 'core-concepts',

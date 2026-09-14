@@ -27,7 +27,7 @@ export const journeyGroups = [
         title: 'Software Developer Intern',
         organization: 'CPF Türkiye · Istanbul, Turkey · On-site',
         description:
-          'Developed a Java desktop application for Excel-to-XML and XML-to-Excel conversion using Maven, Apache POI, JAXB and Java Swing for invoice, customer and bank information workflows.',
+          'Built a Java Swing tool for Excel/XML conversion using Apache POI and JAXB, with input validation and conversion error handling.',
         type: 'Professional Experience',
       },
     ],
