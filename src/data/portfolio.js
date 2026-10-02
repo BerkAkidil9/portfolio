@@ -64,5 +64,5 @@ export const contact = {
   email: 'berkakidil9@gmail.com',
   github: 'https://github.com/BerkAkidil9',
   linkedin: 'https://www.linkedin.com/in/berkakidil/',
-  cv: '/docs/resume-berk-akidil.pdf',
+  cv: '/docs/Berk_Akidil_Resume.pdf',
 };
