@@ -10,10 +10,10 @@ Live site: [berkakidil.vercel.app](https://berkakidil.vercel.app/)
 
 ## Features
 
-- Responsive desktop and mobile navigation.
-- Expandable project screenshot previews.
-- 3D space visuals, animations and a launch intro.
-- Reduced-motion support and WebGL fallback.
+- Detailed project showcases with challenges, solutions, developer roles, technology stacks and expandable screenshots.
+- Responsive single-page navigation across desktop and mobile.
+- Interactive 3D space visuals, a skippable launch intro and scroll-triggered animations.
+- Reduced-motion support and a static fallback when 3D rendering is unavailable.
 
 ## Tech Stack
 
@@ -22,7 +22,7 @@ Live site: [berkakidil.vercel.app](https://berkakidil.vercel.app/)
 | Application | React, JavaScript, Vite |
 | Visuals | Three.js, React Three Fiber, Drei, Framer Motion |
 | Styles | CSS Modules and shared CSS tokens |
-| Quality checks | ESLint and npm audit |
+| Quality checks | ESLint |
 | Behavior tests | Playwright |
 
 ## Getting Started
@@ -46,7 +46,6 @@ Open the local URL printed by Vite. No `.env` configuration is required.
 | `npm run build` | Create the production build in `dist/`. |
 | `npm run preview` | Serve `dist/` locally after running `npm run build`. |
 | `npm run lint` | Check code with ESLint. |
-| `npm run dependency:audit` | Check dependencies for known security vulnerabilities. |
 | `npm run test:e2e` | Build the site and run the Playwright behavior tests. |
 
 ## Behavior Tests
