@@ -10,13 +10,10 @@ Live site: [berkakidil.vercel.app](https://berkakidil.vercel.app/)
 
 ## Features
 
-- Project showcases, skills, background, experience and contact sections.
 - Responsive desktop and mobile navigation.
-- Project cards with screenshot previews, repository links and live demos.
+- Expandable project screenshot previews.
 - 3D space visuals, animations and a launch intro.
 - Reduced-motion support and WebGL fallback.
-- Email, GitHub, LinkedIn and PDF resume links.
-- Vercel Analytics and Speed Insights integration.
 
 ## Tech Stack
 
@@ -59,7 +56,7 @@ the resume PDF, launch intro and reduced-motion behavior in desktop and mobile
 Chromium. They also check for uncaught JavaScript errors. External link
 destinations are mocked to keep tests independent of third-party availability.
 
-Install Chromium before the first test run and after updating Playwright:
+Install Chromium, then run the browser tests. Repeat the installation after updating Playwright:
 
 ```bash
 npm exec -- playwright install chromium
@@ -70,7 +67,7 @@ The test command builds the site and starts the preview server automatically.
 View the HTML report with `npm exec -- playwright show-report`. Failure
 screenshots and traces are saved in `test-results/`.
 
-## Project Structure and Content
+## Project Structure
 
 | Path | Responsibility |
 | --- | --- |
@@ -82,6 +79,8 @@ screenshots and traces are saved in `test-results/`.
 | `e2e/`, `playwright.config.js` | Browser tests and configuration. |
 | `index.html` | Initial page metadata. |
 
+## Content Updates
+
 Update portfolio content in `src/data/` and keep image and resume links aligned
 with the files in `public/`.
 
@@ -91,8 +90,7 @@ matching metadata in `index.html` synchronized.
 ## Deployment
 
 Hosted on Vercel from `main`. For static hosting, use `npm run build` as the build
-command and `dist/` as the output directory. Run `npm run preview` after building
-to inspect the production site locally.
+command and `dist/` as the output directory.
 
 The current setup assumes hosting at the domain root. Subpath deployments require
 adjusting the Vite base configuration and public asset URLs.
