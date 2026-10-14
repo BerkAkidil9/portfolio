@@ -3,6 +3,8 @@ dist
 .npm-cache
 .eslintcache
 .visual-review
+playwright-report
+test-results
 .DS_Store
 AGENTS.md
 CONTENT_TODO.md

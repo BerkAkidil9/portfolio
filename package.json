@@ -7,6 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "dependency:audit": "npm audit --audit-level=low",
+    "ci:quality": "npm run dependency:audit && npm run lint && npm run build",
+    "ci:local": "npm run ci:quality && playwright test",
+    "test:e2e": "npm run build && playwright test",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -21,6 +25,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "1.64.1",
     "@vitejs/plugin-react": "^6.0.4",
     "eslint": "^10.8.0",
     "eslint-plugin-react-hooks": "^7.1.1",

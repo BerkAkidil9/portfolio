@@ -1,0 +1,100 @@
+name: CI (native)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI: 'true'
+
+jobs:
+  quality:
+    name: Audit, lint and build
+    # Only the repository owner can run trusted repository code on this Mac.
+    if: >-
+      github.actor == github.repository_owner &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: [self-hosted, macOS, ARM64, portfolio-ci]
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          clean: true
+          persist-credentials: false
+
+      - name: Configure runner npm cache
+        run: echo "npm_config_cache=$RUNNER_TEMP/portfolio-npm-cache" >> "$GITHUB_ENV"
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run native checks
+        run: npm run ci:quality
+
+  browser:
+    name: Behavior tests (${{ matrix.shard }}/2, 2 workers)
+    needs: quality
+    if: >-
+      github.actor == github.repository_owner &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: [self-hosted, macOS, ARM64, portfolio-ci]
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [1, 2]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          clean: true
+          persist-credentials: false
+
+      - name: Configure this runner's cache and preview port
+        # Runner-based ports also avoid collisions between different workflow runs.
+        run: |
+          echo "npm_config_cache=$RUNNER_TEMP/portfolio-npm-cache" >> "$GITHUB_ENV"
+          case "$RUNNER_NAME" in
+            portfolio-ci-1) echo 'CI_PREVIEW_PORT=4281' >> "$GITHUB_ENV" ;;
+            portfolio-ci-2) echo 'CI_PREVIEW_PORT=4282' >> "$GITHUB_ENV" ;;
+            *) echo 'Unexpected portfolio runner name' >&2; exit 1 ;;
+          esac
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Chromium
+        run: npm exec -- playwright install chromium
+
+      - name: Run behavior test shard with two workers
+        run: npm run test:e2e -- --shard=${{ matrix.shard }}/2 --workers=2
