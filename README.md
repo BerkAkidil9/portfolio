@@ -8,18 +8,13 @@ Live site: [berkakidil.vercel.app](https://berkakidil.vercel.app/)
 
 ![Portfolio launch intro preview](public/images/projects/interactive-portfolio-website.png)
 
-This repository contains the portfolio frontend. Reusable React sections and
-separate content files make it possible to update project information and profile
-copy while keeping the presentation consistent.
-
 ## Features
 
-- Single-page sections for Home, Projects, Skills, About, Experience and Contact.
-- Responsive navigation with a mobile menu and Escape-key dismissal.
-- Data-driven project cards with screenshot previews, repository links and live demos.
-- Three.js space visuals, Framer Motion animations and video backgrounds.
-- Reduced-motion support and a visual fallback when WebGL is unavailable.
-- Launch intro with button and Escape-key dismissal, remembered for the browser session in production.
+- Project showcases, skills, background, experience and contact sections.
+- Responsive desktop and mobile navigation.
+- Project cards with screenshot previews, repository links and live demos.
+- 3D space visuals, animations and a launch intro.
+- Reduced-motion support and WebGL fallback.
 - Email, GitHub, LinkedIn and PDF resume links.
 - Vercel Analytics and Speed Insights integration.
 
@@ -27,12 +22,11 @@ copy while keeping the presentation consistent.
 
 | Area | Tools |
 | --- | --- |
-| Application | React 18, JavaScript, Vite |
+| Application | React, JavaScript, Vite |
 | Visuals | Three.js, React Three Fiber, Drei, Framer Motion |
 | Styles | CSS Modules and shared CSS tokens |
 | Quality checks | ESLint and npm audit |
-| Behavior tests | Playwright with desktop and mobile Chromium |
-| Hosting | Vercel |
+| Behavior tests | Playwright |
 
 ## Getting Started
 
@@ -45,10 +39,7 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. `npm ci` installs the versions recorded in
-`package-lock.json`.
-
-The current application requires no `.env` file, backend service or database.
+Open the local URL printed by Vite. No `.env` configuration is required.
 
 ## Commands
 
@@ -57,109 +48,62 @@ The current application requires no `.env` file, backend service or database.
 | `npm run dev` | Start the Vite development server. |
 | `npm run build` | Create the production build in `dist/`. |
 | `npm run preview` | Serve `dist/` locally after running `npm run build`. |
-| `npm run lint` | Check JavaScript and JSX, including the test configuration. |
-| `npm run dependency:audit` | Audit all dependencies, including development dependencies; fail for low severity or higher. |
+| `npm run lint` | Check code with ESLint. |
+| `npm run dependency:audit` | Check dependencies for known security vulnerabilities. |
 | `npm run test:e2e` | Build the site and run the Playwright behavior tests. |
 
 ## Behavior Tests
 
-The tests in [`e2e/`](e2e/) run against the production build in desktop Chromium
-and mobile Chromium with Pixel 7 emulation. They cover:
-
-- Navigation to each section, hero action links and returning home.
-- Opening the mobile menu, selecting links, closing with Escape and restoring scrolling.
-- Loading project screenshots and opening and closing screenshot previews.
-- Opening project and source-code links in a separate tab.
-- Serving the linked resume as an actual PDF.
-- Using the site with reduced motion enabled.
-- Dismissing the launch intro with its button or Escape, and remembering dismissal on reload.
-
-Every browser test also checks for uncaught JavaScript errors. External links
-under test are intercepted to validate outgoing navigation without depending on
-third-party uptime.
+The [Playwright tests](e2e/) check navigation, screenshot previews, outgoing links,
+the resume PDF, launch intro and reduced-motion behavior in desktop and mobile
+Chromium. They also check for uncaught JavaScript errors. External link
+destinations are mocked to keep tests independent of third-party availability.
 
 Install Chromium before the first test run and after updating Playwright:
 
 ```bash
 npm exec -- playwright install chromium
-```
-
-Run the behavior tests, including a fresh production build:
-
-```bash
 npm run test:e2e
 ```
 
-Playwright starts and stops its preview server automatically on port **4280**.
-Keep that port free when running the tests.
-
-Failure screenshots and traces are saved in `test-results/`, with an HTML report
-in `playwright-report/`. Both directories are ignored by Git.
-
-```bash
-npm exec -- playwright show-report
-```
-
-## Dependency Maintenance
-
-Use `npm run dependency:audit` to identify known vulnerabilities before changing
-dependencies. Prefer targeted security updates within compatible version ranges,
-review the `package.json` and `package-lock.json` changes, and run
-`npm run lint` and `npm run test:e2e` after updating. Commit the lockfile with
-dependency changes to keep installations reproducible.
-
-Review non-security fixes and major upgrades separately when the project needs them.
+The test command builds the site and starts the preview server automatically.
+View the HTML report with `npm exec -- playwright show-report`. Failure
+screenshots and traces are saved in `test-results/`.
 
 ## Project Structure and Content
 
 | Path | Responsibility |
 | --- | --- |
-| `src/data/portfolio.js` | Profile copy, section links, contact details, resume URL and SEO values. |
-| `src/data/projects.js` | Featured project descriptions, screenshots, skills and outgoing links. |
-| `src/data/skills.js`, `src/data/journey.js`, `src/data/socialLinks.js` | Skills, experience and social links. |
+| `src/data/` | Profile, projects, skills, experience, links and SEO values. |
 | `src/components/` | Navigation, layout, page sections and reusable UI. |
-| `src/experience/` | Three.js scene and reduced-motion/WebGL fallback. |
-| `src/styles/` | Shared tokens, resets and global styles. |
+| `src/experience/` | Three.js scene and visual fallback. |
+| `src/styles/` | Shared styles and design tokens. |
 | `public/` | Project images, videos, icons, Open Graph image and PDF resume. |
-| `e2e/`, `playwright.config.js` | Browser behavior tests and execution settings. |
-| `index.html` | Initial page title, description, canonical URL and social metadata. |
+| `e2e/`, `playwright.config.js` | Browser tests and configuration. |
+| `index.html` | Initial page metadata. |
 
-Edit portfolio copy and project entries in `src/data/`. Keep screenshot and resume
-URLs aligned with the corresponding files in `public/`. Public asset URLs start
-at `/`, without the `public/` directory name.
+Update portfolio content in `src/data/` and keep image and resume links aligned
+with the files in `public/`.
 
-`src/main.jsx` applies the `seo` values from `src/data/portfolio.js` when the app
-loads. Keep the corresponding tags in `index.html` aligned so the initial HTML
-also contains the correct metadata.
+SEO values in `src/data/portfolio.js` are applied when the app loads. Keep the
+matching metadata in `index.html` synchronized.
 
 ## Deployment
 
-This is a static Vite application hosted on Vercel from `main` through Vercel's
-Git integration.
+Hosted on Vercel from `main`. For static hosting, use `npm run build` as the build
+command and `dist/` as the output directory. Run `npm run preview` after building
+to inspect the production site locally.
 
-Build and inspect the production site locally:
-
-```bash
-npm run build
-npm run preview
-```
-
-For static hosting, use `npm run build` as the build command and `dist/` as the
-output directory.
-
-The generated files can also be served by another static host. The current
-configuration and public asset URLs assume hosting at the domain root. Deployment
-under a subpath requires updating the Vite base configuration and reviewing asset
-URLs and site metadata.
+The current setup assumes hosting at the domain root. Subpath deployments require
+adjusting the Vite base configuration and public asset URLs.
 
 ## Help and Contributions
 
 Maintained by [Berk Akidil](https://github.com/BerkAkidil9).
 
-For bugs or suggestions, [open an issue](https://github.com/BerkAkidil9/portfolio/issues)
-with reproduction steps and the browser/device used. Code and documentation fixes
-can be submitted through pull requests. Run `npm run lint` and `npm run test:e2e`
-before submitting code changes.
+For bugs or suggestions, [open an issue](https://github.com/BerkAkidil9/portfolio/issues).
+Pull requests are welcome; run `npm run lint` and `npm run test:e2e` before
+submitting code changes.
 
 ## License
 
