@@ -1,10 +1,28 @@
-node_modules
-dist
-.npm-cache
+# Dependencies and build output
+node_modules/
+dist/
+
+# Local environment files; keep configuration examples shareable
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/
+
+# Caches and logs
+.npm-cache/
 .eslintcache
-.visual-review
-playwright-report
-test-results
-.DS_Store
+*.log
+npm-debug.log*
+
+# Generated browser test reports
+playwright-report/
+test-results/
+
+# Local review artifacts and notes
+.visual-review/
 AGENTS.md
 CONTENT_TODO.md
+
+# Operating system files
+.DS_Store
