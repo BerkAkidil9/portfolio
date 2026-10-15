@@ -15,6 +15,16 @@ Live site: [berkakidil.vercel.app](https://berkakidil.vercel.app/)
 - Interactive 3D space visuals, a skippable launch intro and scroll-triggered animations.
 - Reduced-motion support and a static fallback when 3D rendering is unavailable.
 
+## Screenshots
+
+**Home**
+
+![Portfolio home screen with navigation and 3D space visuals](docs/images/portfolio-home.png)
+
+**Project showcases**
+
+![Portfolio project cards showing CRM, Swim Center and LineupNest](docs/images/portfolio-projects.png)
+
 ## Tech Stack
 
 | Area | Tools |
