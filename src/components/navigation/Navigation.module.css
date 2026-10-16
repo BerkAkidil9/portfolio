@@ -135,12 +135,16 @@
     right: 0;
     left: 0;
     display: grid;
+    max-height: calc(100dvh - 4.4rem - 1px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     gap: var(--space-sm);
     padding: 1rem;
     border-bottom: 1px solid var(--color-border);
     background: rgba(3, 7, 19, 0.96);
     box-shadow: var(--shadow-card);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-0.8rem);
     transition:
@@ -150,6 +154,7 @@
 
   .links.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
   }

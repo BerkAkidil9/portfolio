@@ -3,7 +3,7 @@ html {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   color-scheme: dark;
-  overflow-x: hidden;
+  overflow-x: clip;
   cursor: var(--cursor-spacecraft);
 }
 
@@ -15,15 +15,13 @@ body {
   color: var(--color-text-primary);
   font-size: var(--font-size-base);
   line-height: var(--line-height-body);
-  overflow-x: hidden;
+  overflow-x: clip;
   cursor: var(--cursor-spacecraft);
 }
 
-body.menu-open {
-  overflow: hidden;
-}
-
-body.launch-intro-open {
+html:has(body.menu-open),
+html:has(body.launch-intro-open),
+html:has(dialog[open]) {
   overflow: hidden;
 }
 

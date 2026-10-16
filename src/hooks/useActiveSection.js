@@ -12,25 +12,39 @@ export function useActiveSection(sectionIds) {
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    let frame;
+    const updateActiveSection = () => {
+      frame = undefined;
+      // Use section starts so long sections remain active throughout their content.
+      const activationLine = window.innerHeight * 0.3;
+      let current = sections[0].id;
 
-        if (visibleEntry) {
-          setActiveSection(visibleEntry.target.id);
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= activationLine) {
+          current = section.id;
         }
-      },
-      {
-        rootMargin: '-30% 0px -55% 0px',
-        threshold: [0.08, 0.2, 0.45],
-      },
-    );
+      }
 
+      setActiveSection(current);
+    };
+    const scheduleUpdate = () => {
+      if (frame === undefined) {
+        frame = window.requestAnimationFrame(updateActiveSection);
+      }
+    };
+
+    const observer = new ResizeObserver(scheduleUpdate);
     sections.forEach((section) => observer.observe(section));
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    scheduleUpdate();
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.cancelAnimationFrame(frame);
+    };
   }, [sectionIds]);
 
   return activeSection;

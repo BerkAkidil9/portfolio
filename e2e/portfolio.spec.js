@@ -42,13 +42,13 @@ test('opens a project screenshot and closes it with the close button', async ({ 
   const dialog = page.getByRole('dialog', { name: 'Multi-Tenant CRM Platform screenshot preview' });
   await expect(dialog).toBeVisible();
   await expect(dialog.getByRole('img')).toBeVisible();
-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await expect(page.locator('html')).toHaveCSS('overflow', 'hidden');
   // Clicking the enlarged image must not dismiss the preview.
   await dialog.getByRole('img').click();
   await expect(dialog).toBeVisible();
   await dialog.getByRole('button', { name: 'Close screenshot preview' }).click();
   await expect(dialog).toHaveCount(0);
-  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  await expect(page.locator('html')).not.toHaveCSS('overflow', 'hidden');
 });
 
 test('closes a project screenshot with Escape', async ({ page }) => {
@@ -57,7 +57,31 @@ test('closes a project screenshot with Escape', async ({ page }) => {
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  await expect(page.locator('html')).not.toHaveCSS('overflow', 'hidden');
+});
+
+test('screenshot preview keeps keyboard focus inside and restores focus and scroll after closing', async ({ page }) => {
+  await page.goto('/#projects');
+  const trigger = page.getByRole('button', { name: 'View larger screenshot for Multi-Tenant CRM Platform' });
+  await trigger.focus();
+  await page.keyboard.press('Enter');
+  const dialog = page.getByRole('dialog');
+  const closeButton = dialog.getByRole('button', { name: 'Close screenshot preview' });
+  await expect(closeButton).toBeFocused();
+  for (const key of ['Tab', 'Tab', 'Shift+Tab', 'Shift+Tab']) {
+    await page.keyboard.press(key);
+    expect(await dialog.evaluate((element) => element.contains(document.activeElement))).toBe(true);
+  }
+  const initialScroll = await page.evaluate(() => window.scrollY);
+  await page.mouse.move(2, 2);
+  await page.mouse.wheel(0, 600);
+  await page.waitForTimeout(200);
+  expect(await page.evaluate(() => window.scrollY)).toBe(initialScroll);
+  await page.keyboard.press('Escape');
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  await page.mouse.wheel(0, 500);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScroll);
 });
 
 test('opens a live project in a separate tab', async ({ page, context }) => {

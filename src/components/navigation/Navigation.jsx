@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useActiveSection } from '../../hooks/useActiveSection.js';
 import { hero } from '../../data/portfolio.js';
 import styles from './Navigation.module.css';
 
 export function Navigation({ items }) {
   const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef(null);
   const sectionIds = useMemo(
     () => items.filter((item) => item.href.startsWith('#')).map((item) => item.id),
     [items],
@@ -19,14 +20,27 @@ export function Navigation({ items }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && isOpen) {
         setIsOpen(false);
+        menuButtonRef.current?.focus();
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
 
     return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 1201px)');
+    const handleChange = () => {
+      if (desktopQuery.matches) {
+        setIsOpen(false);
+      }
+    };
+
+    desktopQuery.addEventListener('change', handleChange);
+    return () => desktopQuery.removeEventListener('change', handleChange);
   }, []);
 
   return (
@@ -38,6 +52,7 @@ export function Navigation({ items }) {
         </a>
 
         <button
+          ref={menuButtonRef}
           className={styles.menuButton}
           type="button"
           aria-controls="primary-navigation"

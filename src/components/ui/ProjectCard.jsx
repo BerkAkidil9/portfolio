@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ActionLink } from './ActionLink.jsx';
@@ -8,25 +8,24 @@ export function ProjectCard({ project, index = 0 }) {
   const prefersReducedMotion = useReducedMotion();
   const visualTheme = project.visualTheme ? styles[project.visualTheme] : '';
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const dialogRef = useRef(null);
+  const screenshotButtonRef = useRef(null);
 
   useEffect(() => {
     if (!isLightboxOpen) {
       return undefined;
     }
 
-    const previousOverflow = document.body.style.overflow;
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setIsLightboxOpen(false);
-      }
-    };
+    const dialog = dialogRef.current;
+    const trigger = screenshotButtonRef.current;
 
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
+    dialog.showModal();
 
     return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
+      dialog.close();
+      if (trigger?.isConnected) {
+        trigger.focus({ preventScroll: true });
+      }
     };
   }, [isLightboxOpen]);
 
@@ -43,6 +42,7 @@ export function ProjectCard({ project, index = 0 }) {
         <div className={`${styles.media} ${visualTheme}`} aria-label={project.screenshotAlt}>
           {project.screenshot ? (
             <button
+              ref={screenshotButtonRef}
               className={styles.mediaButton}
               type="button"
               aria-label={`View larger screenshot for ${project.name}`}
@@ -116,11 +116,21 @@ export function ProjectCard({ project, index = 0 }) {
 
       {isLightboxOpen &&
         createPortal(
-          <div
+          <dialog
+            ref={dialogRef}
             className={styles.lightbox}
-            role="dialog"
-            aria-modal="true"
             aria-label={`${project.name} screenshot preview`}
+            onKeyDown={(event) => {
+              // The close button is the preview's only interactive element.
+              if (event.key === 'Tab') {
+                event.preventDefault();
+                event.currentTarget.querySelector('button').focus();
+              }
+            }}
+            onCancel={(event) => {
+              event.preventDefault();
+              setIsLightboxOpen(false);
+            }}
             onClick={() => setIsLightboxOpen(false)}
           >
             <div className={styles.lightboxPanel} onClick={(event) => event.stopPropagation()}>
@@ -140,7 +150,7 @@ export function ProjectCard({ project, index = 0 }) {
               </div>
               <img src={project.screenshot} alt={project.screenshotAlt} />
             </div>
-          </div>,
+          </dialog>,
           document.body,
         )}
     </>
